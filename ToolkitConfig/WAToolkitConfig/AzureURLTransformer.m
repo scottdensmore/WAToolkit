@@ -47,14 +47,14 @@
 		NSString* str = [NSString stringWithFormat:format, item];
 		NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
 		
-		attr = [[NSMutableAttributedString alloc] initWithString:@"" attributes:[NSDictionary dictionary]];
+		attr = [[NSMutableAttributedString alloc] initWithString:@"" attributes:@{}];
 		
-		[attr readFromData:data options:[NSDictionary dictionary] documentAttributes:nil];
+		[attr readFromData:data options:@{} documentAttributes:nil];
 	}
 	else
 	{
 		NSString* str = [NSString stringWithFormat:format, item];
-		attr = [[NSMutableAttributedString alloc] initWithString:str attributes:[NSDictionary dictionary]];
+		attr = [[NSMutableAttributedString alloc] initWithString:str attributes:@{}];
 	}
 	
 	return [attr autorelease];

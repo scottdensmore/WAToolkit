@@ -38,8 +38,8 @@
 {
     [WAXMLHelper performXPath:@"_default:content/m:properties/*" onNode:_node block:^(xmlNodePtr child, BOOL* stop) {
         xmlChar *xmlValue = xmlNodeGetContent(child);
-        NSString *name = [NSString stringWithUTF8String:(const char*)child->name];
-        NSString *value = [NSString stringWithUTF8String:(const char*)xmlValue];
+        NSString *name = @((const char*)child->name);
+        NSString *value = @((const char*)xmlValue);
         xmlFree(xmlValue);
         block(name, value, stop);
     }];
@@ -67,7 +67,7 @@
 	
 	[self processContentPropertiesWithBlock:^(NSString *key, NSString *value, BOOL *stop) 
 	{
-		[dict setObject:value forKey:key];
+		dict[key] = value;
 	}];
 	 
 	return dict;

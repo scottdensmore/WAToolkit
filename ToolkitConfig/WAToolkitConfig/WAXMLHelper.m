@@ -95,7 +95,7 @@
         if(xmlStrcmp(child->name, nameStr) == 0)
         {
             xmlChar *value = xmlNodeGetContent(child);
-            NSString *str = [NSString stringWithUTF8String:(const char*)value];
+            NSString *str = @((const char*)value);
             xmlFree(value);
             return str;
         }
@@ -120,10 +120,9 @@
         
         return [NSError errorWithDomain:@"com.microsoft.AzureIOSToolkit" 
                                    code:-1 
-                               userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                         message, NSLocalizedDescriptionKey, 
-                                         detail, NSLocalizedFailureReasonErrorKey, 
-                                         code, @"AzureReasonCode", nil]];
+                               userInfo:@{NSLocalizedDescriptionKey: message, 
+                                         NSLocalizedFailureReasonErrorKey: detail, 
+                                         @"AzureReasonCode": code}];
     }
 
     if(xmlStrcmp(root->name, (xmlChar*)"error") == 0)
@@ -133,9 +132,8 @@
         
         return [NSError errorWithDomain:@"com.microsoft.AzureIOSToolkit" 
                                    code:-1 
-                               userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                         message, NSLocalizedDescriptionKey, 
-                                         code, @"AzureReasonCode", nil]];
+                               userInfo:@{NSLocalizedDescriptionKey: message, 
+                                         @"AzureReasonCode": code}];
     }
     
     return nil;

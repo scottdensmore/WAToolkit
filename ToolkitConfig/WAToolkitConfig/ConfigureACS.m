@@ -39,7 +39,7 @@
 		  [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 		   {
 			   long long issuerKey = [[entry objectForKey:@"Id"] longLongValue];
-			   NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithLongLong:issuerKey] forKey:@"Issuer"];
+			   NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithObject:@(issuerKey) forKey:@"Issuer"];
 			   [queue setObject:dictionary forKey:providerName];
 			   *stop = YES;
 			   
@@ -63,7 +63,7 @@
 					 [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 					  {
 						  long long identityProviderKey = [[entry objectForKey:@"Id"] longLongValue];
-						  [dictionary setObject:[NSNumber numberWithLongLong:identityProviderKey] forKey:@"IdentityProvider"];
+						  dictionary[@"IdentityProvider"] = @(identityProviderKey);
 						  *stop = YES;
 						  
 						  block(identityProviderKey);
@@ -167,7 +167,7 @@
 				  {
 					  long long idValue = idValue = [idStr longLongValue];
 					  
-					  [queue setObject:[NSNumber numberWithLongLong:idValue] forKey:@"RelyingParty"];
+					  [queue setObject:@(idValue) forKey:@"RelyingParty"];
 				  }
 			  }];
 		 }
@@ -268,7 +268,7 @@
 				  {
 					  long long idValue = idValue = [idStr longLongValue];
 					  
-					  [queue setObject:[NSNumber numberWithLongLong:idValue] forKey:@"RuleGroup"];
+					  [queue setObject:@(idValue) forKey:@"RuleGroup"];
 					  
 					  WAMultipartMime *mime = [queue.client createMimeBody];
 					  long long relyingParty = [[queue objectForKey:@"RelyingParty"] longLongValue];
@@ -323,7 +323,7 @@
 								NSString *idStr = [entry objectForKey:@"Id"];
 								if(idStr)
 								{
-									NSNumber *num = [NSNumber numberWithLongLong:[idStr longLongValue]];
+									NSNumber *num = @([idStr longLongValue]);
 									
 									switch(index)
 									{
@@ -462,7 +462,7 @@
 				  long long idValue = idValue = [idStr longLongValue];
 				  
 				  NSMutableDictionary *dict = [queue objectForKey:providerName];
-				  [dict setObject:[NSNumber numberWithLongLong:idValue] forKey:@"IdentityProviderAddresses"];
+				  dict[@"IdentityProviderAddresses"] = @(idValue);
 			  }
 		  }];
 	 }
@@ -496,7 +496,7 @@
 			  if(idStr)
 			  {
 				  long long idValue = idValue = [idStr longLongValue];
-				  NSMutableDictionary* d = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithLongLong:idValue] 
+				  NSMutableDictionary* d = [NSMutableDictionary dictionaryWithObject:@(idValue) 
 																			  forKey:@"IdentityProvider"];
 				  [queue setObject:d forKey:providerName];
 			  }
@@ -614,7 +614,7 @@
 			  NSString *idStr = [entry objectForKey:@"Id"];
 			  if(idStr)
 			  {
-				  NSNumber *num = [NSNumber numberWithLongLong:[idStr longLongValue]];
+				  NSNumber *num = @([idStr longLongValue]);
 				  
 				  NSMutableDictionary *dict = [queue objectForKey:key];
 				  if(!dict)
@@ -623,7 +623,7 @@
 					  [queue setObject:dict forKey:key];
 				  }
 				  
-				  [dict setObject:num forKey:@"Rule"];
+				  dict[@"Rule"] = num;
 			  }
 		  }];
 	 }
@@ -728,10 +728,10 @@
 			  NSString *idStr = [entry objectForKey:@"Id"];
 			  if(idStr)
 			  {
-				  NSNumber *num = [NSNumber numberWithLongLong:[idStr longLongValue]];
+				  NSNumber *num = @([idStr longLongValue]);
 				  
 				  NSMutableDictionary *dict = [queue objectForKey:key];
-				  [dict setObject:num forKey:@"RelyingPartyIdentityProvider"];
+				  dict[@"RelyingPartyIdentityProvider"] = num;
 			  }
 		  }];
 	 }
@@ -769,7 +769,7 @@
 		[names addObject:key];
 		
 		NSDictionary *dict = [queue objectForKey:key];
-		long long identityProvider = [[dict objectForKey:@"IdentityProvider"] longLongValue];
+		long long identityProvider = [dict[@"IdentityProvider"] longLongValue];
 		
 		WAMultipartMime *mime = [queue.client createMimeBody];
 		
@@ -816,7 +816,7 @@
         CFErrorRef error = NULL;
         
         // Create the dictionary of key parameters
-        CFMutableDictionaryRef parameters = (CFMutableDictionaryRef)[NSMutableDictionary dictionaryWithObjectsAndKeys:kSecAttrKeyTypeAES, kSecAttrKeyType, (CFNumberRef)[NSNumber numberWithInt:256], kSecAttrKeySizeInBits, nil];
+        CFMutableDictionaryRef parameters = (CFMutableDictionaryRef)[NSMutableDictionary dictionaryWithObjectsAndKeys:kSecAttrKeyTypeAES, kSecAttrKeyType, (CFNumberRef)@256, kSecAttrKeySizeInBits, nil];
         
         keyRef = SecKeyGenerateSymmetric(parameters, &error);
 					
@@ -878,7 +878,7 @@
 					 // ... add the relying party...
 					 [self addRelyingPartyWithQueue:queue name:relyingPartyName withCompletionHandler:^ 
 					  {
-						  NSArray* providers = [NSArray arrayWithObjects:@"Windows Live ID", @"Google", @"Yahoo!", nil];
+						  NSArray* providers = @[@"Windows Live ID", @"Google", @"Yahoo!"];
 						  
 						  [self bindPartyIdentitiesWithQueue:queue identityProviders:providers withCompletionHandler:^
 						   {

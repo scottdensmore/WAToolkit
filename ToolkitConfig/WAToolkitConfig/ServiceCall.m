@@ -290,7 +290,7 @@
 			 return;
 		 }
 		 
-		 if(![[lines objectAtIndex:0] hasPrefix:@"--batchresponse"])
+		 if(![lines[0] hasPrefix:@"--batchresponse"])
 		 {
 			 LOGLINE(@"Invalid MIME body");
 
@@ -299,7 +299,7 @@
 			 return;
 		 }
 		 
-		 NSString *boundary = [@"--" stringByAppendingString:[[[lines objectAtIndex:1] componentsSeparatedByString:@"="] objectAtIndex:1]];
+		 NSString *boundary = [@"--" stringByAppendingString:[lines[1] componentsSeparatedByString:@"="][1]];
 
 		 NSMutableDictionary *contentHeaders = nil;
 		 NSMutableString *body = nil;
@@ -365,7 +365,7 @@
 						 NSString* key = [[s substringToIndex:r.location] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 						 NSString* value = [[s substringFromIndex:1 + r.location] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 						 
-						 [contentHeaders setObject:value forKey:key];
+						 contentHeaders[key] = value;
 					 }
 				 }
 			 }
@@ -481,7 +481,7 @@
 	{
 		error = [NSError errorWithDomain:@"com.microsoft.WAToolkitConfig" 
 									code:_statusCode 
-								userInfo:[NSDictionary dictionaryWithObject:@"Invalid HTTP status returned.\nInsure your ACS management key is correct." forKey:NSLocalizedDescriptionKey]];
+								userInfo:@{NSLocalizedDescriptionKey: @"Invalid HTTP status returned.\nInsure your ACS management key is correct."}];
 		_block(_statusCode, nil, error);
 		return;
 	}

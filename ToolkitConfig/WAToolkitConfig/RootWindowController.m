@@ -129,7 +129,7 @@ typedef enum {
 		[string addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:11.0] range:NSMakeRange(0, [string length])];
 		self.fieldObtainACSKey = string;
 		
-		self.fieldSaveType = [NSNumber numberWithInt:1];
+		self.fieldSaveType = @1;
 	}
     
     return self;
@@ -328,7 +328,7 @@ typedef enum {
 			NSSavePanel* panel = [NSSavePanel savePanel];
             NSURL *home = [NSURL fileURLWithPath:@"~/"];
             [panel setDirectoryURL:home];
-			[panel setAllowedFileTypes:[NSArray arrayWithObject:@"cscfg"]];
+			[panel setAllowedFileTypes:@[@"cscfg"]];
 			[panel setAllowsOtherFileTypes:NO];
 			[panel setNameFieldStringValue:@"ServiceConfiguration.cscfg"];
 			[panel setExtensionHidden:NO];
@@ -480,7 +480,7 @@ typedef enum {
     [panel setDirectoryURL:home];
 	[panel setAllowsMultipleSelection:NO];
 	//[panel setAllowedFileTypes:[NSArray arrayWithObject:@"cer"]];
-    [panel setAllowedFileTypes:[NSArray arrayWithObjects:@"cer", @"pfx", @"pem", nil]];
+    [panel setAllowedFileTypes:@[@"cer", @"pfx", @"pem"]];
 	[panel setAllowsOtherFileTypes:NO];
 	
 	[panel beginSheetModalForWindow:[tabView window]
@@ -586,7 +586,7 @@ typedef enum {
 		 }
 		 else
 		 {
-			 self.fieldACSSigningKey = [values objectForKey:@"TokenSigningKey"];												 
+			 self.fieldACSSigningKey = values[@"TokenSigningKey"];												 
 			 self.fieldACSStatus = @"Finishing...";
 			 
 			 [acsSpinner setDoubleValue:++progress];
@@ -637,7 +637,7 @@ typedef enum {
 	{
 		NSPasteboard *pasteBoard = [NSPasteboard generalPasteboard];
 		
-		[pasteBoard declareTypes:[NSArray arrayWithObjects:NSStringPboardType, nil] owner:nil];
+		[pasteBoard declareTypes:@[NSStringPboardType] owner:nil];
 		[pasteBoard setString:contents forType:NSStringPboardType];
 	}	
 	

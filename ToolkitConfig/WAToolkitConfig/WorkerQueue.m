@@ -55,12 +55,12 @@
 
 - (id)objectForKey:(id)aKey
 {
-	return [_values objectForKey:aKey];
+	return _values[aKey];
 }
 
 - (void)setObject:(id)value forKey:(id)aKey
 {
-	[_values setObject:value forKey:aKey];
+	_values[aKey] = value;
 }
 
 - (void)setCompletionHandler:(WorkerQueueBlock)block

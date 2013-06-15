@@ -166,7 +166,7 @@
 				
 			case EdmBoolean:
 			{
-				BOOL value = va_arg(args, BOOL);
+				BOOL value = va_arg(args, int);
 				xmlTextWriterWriteAttribute(writer, BAD_CAST "m:type", BAD_CAST "Edm.Boolean");
 				xmlTextWriterWriteString(writer, BAD_CAST (value ? "true" : "false"));
 				break;
@@ -240,7 +240,7 @@
 	
 	xmlTextWriterEndDocument(writer);
 
-	NSString *str = [NSString stringWithUTF8String:(const char*)buf->content];
+	NSString *str = @((const char*)buf->content);
 
 	xmlFreeTextWriter(writer);
 	xmlBufferFree(buf);
