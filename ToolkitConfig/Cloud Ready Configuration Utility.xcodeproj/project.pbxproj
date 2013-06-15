@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA27917D13AE8A450042B1FA /* ServiceCall.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27917C13AE8A450042B1FA /* ServiceCall.m */; };
+		AA27918113AE8C3B0042B1FA /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27918013AE8C3B0042B1FA /* NSString+URLEncode.m */; };
+		AA27918413AFCF170042B1FA /* WAXMLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27918313AFCF160042B1FA /* WAXMLHelper.m */; };
+		AA27918613AFCF460042B1FA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA27918513AFCF460042B1FA /* libxml2.dylib */; };
+		AA27918F13AFCFC20042B1FA /* WAAtomPubEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27918E13AFCFC10042B1FA /* WAAtomPubEntry.m */; };
+		AA27919213AFE5110042B1FA /* WorkerQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919113AFE5110042B1FA /* WorkerQueue.m */; };
+		AA27919513B01A020042B1FA /* WAMultipartMime.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919413B019FE0042B1FA /* WAMultipartMime.m */; };
+		AA27919813B152050042B1FA /* ConfigureACS.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919713B152040042B1FA /* ConfigureACS.m */; };
+		AA44E49413CBCF7B0081A35E /* cloudicon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA44E49313CBCF7B0081A35E /* cloudicon.png */; };
+		AA44E49813CBDC8B0081A35E /* NSAttributedString+Hyperlink.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44E49713CBDC8B0081A35E /* NSAttributedString+Hyperlink.m */; };
+		AA4A123F13A2DC120045B856 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4A123E13A2DC120045B856 /* Security.framework */; };
+		AA4A127213A2F3940045B856 /* AzureURLTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4A127113A2F3940045B856 /* AzureURLTransformer.m */; };
+		AA4FE0CB13A9620900D29B7B /* WASimpleBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4FE0CA13A9620900D29B7B /* WASimpleBase64.m */; };
+		AA4FE0CE13A96BD200D29B7B /* ServiceConfiguration-ACS.cscfg in Resources */ = {isa = PBXBuildFile; fileRef = AA4FE0CD13A96BD200D29B7B /* ServiceConfiguration-ACS.cscfg */; };
+		AA4FE0D013A96FAC00D29B7B /* ServiceConfiguration-Mem.cscfg in Resources */ = {isa = PBXBuildFile; fileRef = AA4FE0CF13A96FAC00D29B7B /* ServiceConfiguration-Mem.cscfg */; };
+		AA4FE0D313A989E800D29B7B /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4FE0D213A989E800D29B7B /* MainWindow.m */; };
+		AA4FE0D513A98E4200D29B7B /* azure3.icns in Resources */ = {isa = PBXBuildFile; fileRef = AA4FE0D413A98E4100D29B7B /* azure3.icns */; };
+		AA4FE0DF13A991E500D29B7B /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = AA4FE0DE13A991E500D29B7B /* help.html */; };
+		AA4FE0E313A9974400D29B7B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4FE0E213A9974400D29B7B /* WebKit.framework */; };
+		AA8E4AE513A15C3400ABB2C1 /* cloud_power_sml.png in Resources */ = {isa = PBXBuildFile; fileRef = AA8E4AE413A15C3400ABB2C1 /* cloud_power_sml.png */; };
+		AAE2A467139F06D300EBA47C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE2A466139F06D300EBA47C /* Cocoa.framework */; };
+		AAE2A471139F06D300EBA47C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAE2A46F139F06D300EBA47C /* InfoPlist.strings */; };
+		AAE2A474139F06D300EBA47C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A473139F06D300EBA47C /* main.m */; };
+		AAE2A47A139F06D300EBA47C /* WAToolkitConfigAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A479139F06D300EBA47C /* WAToolkitConfigAppDelegate.m */; };
+		AAE2A47D139F06D300EBA47C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAE2A47B139F06D300EBA47C /* MainMenu.xib */; };
+		AAE2A48A139F0C0100EBA47C /* SourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A489139F0C0100EBA47C /* SourceView.m */; };
+		AAE2A48D139F186800EBA47C /* RootWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A48C139F186800EBA47C /* RootWindowController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA27917B13AE8A450042B1FA /* ServiceCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceCall.h; sourceTree = "<group>"; };
+		AA27917C13AE8A450042B1FA /* ServiceCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceCall.m; sourceTree = "<group>"; };
+		AA27917E13AE8C190042B1FA /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
+		AA27918013AE8C3B0042B1FA /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
+		AA27918213AFCF160042B1FA /* WAXMLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAXMLHelper.h; sourceTree = "<group>"; };
+		AA27918313AFCF160042B1FA /* WAXMLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAXMLHelper.m; sourceTree = "<group>"; };
+		AA27918513AFCF460042B1FA /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		AA27918D13AFCFC10042B1FA /* WAAtomPubEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAAtomPubEntry.h; sourceTree = "<group>"; };
+		AA27918E13AFCFC10042B1FA /* WAAtomPubEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAAtomPubEntry.m; sourceTree = "<group>"; };
+		AA27919013AFE5100042B1FA /* WorkerQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerQueue.h; sourceTree = "<group>"; };
+		AA27919113AFE5110042B1FA /* WorkerQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkerQueue.m; sourceTree = "<group>"; };
+		AA27919313B019FD0042B1FA /* WAMultipartMime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMultipartMime.h; sourceTree = "<group>"; };
+		AA27919413B019FE0042B1FA /* WAMultipartMime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMultipartMime.m; sourceTree = "<group>"; };
+		AA27919613B152030042B1FA /* ConfigureACS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigureACS.h; sourceTree = "<group>"; };
+		AA27919713B152040042B1FA /* ConfigureACS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigureACS.m; sourceTree = "<group>"; };
+		AA44E49313CBCF7B0081A35E /* cloudicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudicon.png; sourceTree = "<group>"; };
+		AA44E49613CBDC8B0081A35E /* NSAttributedString+Hyperlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Hyperlink.h"; sourceTree = "<group>"; };
+		AA44E49713CBDC8B0081A35E /* NSAttributedString+Hyperlink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Hyperlink.m"; sourceTree = "<group>"; };
+		AA4A123E13A2DC120045B856 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AA4A127013A2F3940045B856 /* AzureURLTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzureURLTransformer.h; sourceTree = "<group>"; };
+		AA4A127113A2F3940045B856 /* AzureURLTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzureURLTransformer.m; sourceTree = "<group>"; };
+		AA4FE0C913A9620900D29B7B /* WASimpleBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WASimpleBase64.h; sourceTree = "<group>"; };
+		AA4FE0CA13A9620900D29B7B /* WASimpleBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WASimpleBase64.m; sourceTree = "<group>"; };
+		AA4FE0CD13A96BD200D29B7B /* ServiceConfiguration-ACS.cscfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "ServiceConfiguration-ACS.cscfg"; sourceTree = "<group>"; };
+		AA4FE0CF13A96FAC00D29B7B /* ServiceConfiguration-Mem.cscfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "ServiceConfiguration-Mem.cscfg"; sourceTree = "<group>"; };
+		AA4FE0D113A989E800D29B7B /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
+		AA4FE0D213A989E800D29B7B /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
+		AA4FE0D413A98E4100D29B7B /* azure3.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = azure3.icns; sourceTree = "<group>"; };
+		AA4FE0DE13A991E500D29B7B /* help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help.html; sourceTree = "<group>"; };
+		AA4FE0E213A9974400D29B7B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		AA72B24513CE0E1400CB1B16 /* Cloud Ready Configuration Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cloud Ready Configuration Utility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA8E4AE413A15C3400ABB2C1 /* cloud_power_sml.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_power_sml.png; sourceTree = "<group>"; };
+		AAE2A466139F06D300EBA47C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AAE2A469139F06D300EBA47C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		AAE2A46A139F06D300EBA47C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AAE2A46B139F06D300EBA47C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AAE2A46E139F06D300EBA47C /* Cloud Ready Configuration Utility-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cloud Ready Configuration Utility-Info.plist"; sourceTree = "<group>"; };
+		AAE2A470139F06D300EBA47C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AAE2A472139F06D300EBA47C /* Cloud Ready Configuration Utility-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cloud Ready Configuration Utility-Prefix.pch"; sourceTree = "<group>"; };
+		AAE2A473139F06D300EBA47C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AAE2A478139F06D300EBA47C /* WAToolkitConfigAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAToolkitConfigAppDelegate.h; sourceTree = "<group>"; };
+		AAE2A479139F06D300EBA47C /* WAToolkitConfigAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WAToolkitConfigAppDelegate.m; sourceTree = "<group>"; };
+		AAE2A47C139F06D300EBA47C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AAE2A488139F0C0100EBA47C /* SourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceView.h; sourceTree = "<group>"; };
+		AAE2A489139F0C0100EBA47C /* SourceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceView.m; sourceTree = "<group>"; };
+		AAE2A48B139F186800EBA47C /* RootWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootWindowController.h; sourceTree = "<group>"; };
+		AAE2A48C139F186800EBA47C /* RootWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootWindowController.m; sourceTree = "<group>"; };
+		DEF0D45D1458D2F8005B920B /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAE2A45F139F06D300EBA47C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA27918613AFCF460042B1FA /* libxml2.dylib in Frameworks */,
+				AA4FE0E313A9974400D29B7B /* WebKit.framework in Frameworks */,
+				AA4A123F13A2DC120045B856 /* Security.framework in Frameworks */,
+				AAE2A467139F06D300EBA47C /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA27917413AE8A260042B1FA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AA27917E13AE8C190042B1FA /* NSString+URLEncode.h */,
+				AA27918013AE8C3B0042B1FA /* NSString+URLEncode.m */,
+				AA27917B13AE8A450042B1FA /* ServiceCall.h */,
+				AA27917C13AE8A450042B1FA /* ServiceCall.m */,
+				AA27918D13AFCFC10042B1FA /* WAAtomPubEntry.h */,
+				AA27918E13AFCFC10042B1FA /* WAAtomPubEntry.m */,
+				AA27918213AFCF160042B1FA /* WAXMLHelper.h */,
+				AA27918313AFCF160042B1FA /* WAXMLHelper.m */,
+				AA27919013AFE5100042B1FA /* WorkerQueue.h */,
+				AA27919113AFE5110042B1FA /* WorkerQueue.m */,
+				AA27919313B019FD0042B1FA /* WAMultipartMime.h */,
+				AA27919413B019FE0042B1FA /* WAMultipartMime.m */,
+				AA27919613B152030042B1FA /* ConfigureACS.h */,
+				AA27919713B152040042B1FA /* ConfigureACS.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		AA4FE0D813A9914400D29B7B /* WAToolkitConfig.help */ = {
+			isa = PBXGroup;
+			children = (
+				AA4FE0DE13A991E500D29B7B /* help.html */,
+			);
+			name = WAToolkitConfig.help;
+			path = Help;
+			sourceTree = "<group>";
+		};
+		AAE2A457139F06D200EBA47C = {
+			isa = PBXGroup;
+			children = (
+				AAE2A46C139F06D300EBA47C /* WAToolkitConfig */,
+				AAE2A465139F06D300EBA47C /* Frameworks */,
+				AAE2A463139F06D300EBA47C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAE2A463139F06D300EBA47C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA72B24513CE0E1400CB1B16 /* Cloud Ready Configuration Utility.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAE2A465139F06D300EBA47C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA27918513AFCF460042B1FA /* libxml2.dylib */,
+				AA4FE0E213A9974400D29B7B /* WebKit.framework */,
+				AA4A123E13A2DC120045B856 /* Security.framework */,
+				AAE2A466139F06D300EBA47C /* Cocoa.framework */,
+				AAE2A468139F06D300EBA47C /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AAE2A468139F06D300EBA47C /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAE2A469139F06D300EBA47C /* AppKit.framework */,
+				AAE2A46A139F06D300EBA47C /* CoreData.framework */,
+				AAE2A46B139F06D300EBA47C /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		AAE2A46C139F06D300EBA47C /* WAToolkitConfig */ = {
+			isa = PBXGroup;
+			children = (
+				AA27917413AE8A260042B1FA /* Services */,
+				AAE2A478139F06D300EBA47C /* WAToolkitConfigAppDelegate.h */,
+				AAE2A479139F06D300EBA47C /* WAToolkitConfigAppDelegate.m */,
+				AA4FE0C913A9620900D29B7B /* WASimpleBase64.h */,
+				AA4FE0CA13A9620900D29B7B /* WASimpleBase64.m */,
+				AAE2A47B139F06D300EBA47C /* MainMenu.xib */,
+				AAE2A488139F0C0100EBA47C /* SourceView.h */,
+				AAE2A489139F0C0100EBA47C /* SourceView.m */,
+				AA4A127013A2F3940045B856 /* AzureURLTransformer.h */,
+				AA4A127113A2F3940045B856 /* AzureURLTransformer.m */,
+				AA4FE0D113A989E800D29B7B /* MainWindow.h */,
+				AA4FE0D213A989E800D29B7B /* MainWindow.m */,
+				AAE2A48B139F186800EBA47C /* RootWindowController.h */,
+				AAE2A48C139F186800EBA47C /* RootWindowController.m */,
+				AA44E49613CBDC8B0081A35E /* NSAttributedString+Hyperlink.h */,
+				AA44E49713CBDC8B0081A35E /* NSAttributedString+Hyperlink.m */,
+				DEF0D45D1458D2F8005B920B /* Macros.h */,
+				AAE2A46D139F06D300EBA47C /* Supporting Files */,
+			);
+			path = WAToolkitConfig;
+			sourceTree = "<group>";
+		};
+		AAE2A46D139F06D300EBA47C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA4FE0D813A9914400D29B7B /* WAToolkitConfig.help */,
+				AA4FE0D413A98E4100D29B7B /* azure3.icns */,
+				AA44E49313CBCF7B0081A35E /* cloudicon.png */,
+				AA8E4AE413A15C3400ABB2C1 /* cloud_power_sml.png */,
+				AAE2A46E139F06D300EBA47C /* Cloud Ready Configuration Utility-Info.plist */,
+				AAE2A46F139F06D300EBA47C /* InfoPlist.strings */,
+				AAE2A472139F06D300EBA47C /* Cloud Ready Configuration Utility-Prefix.pch */,
+				AAE2A473139F06D300EBA47C /* main.m */,
+				AA4FE0CD13A96BD200D29B7B /* ServiceConfiguration-ACS.cscfg */,
+				AA4FE0CF13A96FAC00D29B7B /* ServiceConfiguration-Mem.cscfg */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAE2A461139F06D300EBA47C /* Cloud Ready Configuration Utility */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAE2A480139F06D300EBA47C /* Build configuration list for PBXNativeTarget "Cloud Ready Configuration Utility" */;
+			buildPhases = (
+				AAE2A45E139F06D300EBA47C /* Sources */,
+				AAE2A45F139F06D300EBA47C /* Frameworks */,
+				AAE2A460139F06D300EBA47C /* Resources */,
+				DEF0D45C1458D0F0005B920B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cloud Ready Configuration Utility";
+			productName = WAToolkitConfig;
+			productReference = AA72B24513CE0E1400CB1B16 /* Cloud Ready Configuration Utility.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAE2A459139F06D200EBA47C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Neudesic LLC";
+			};
+			buildConfigurationList = AAE2A45C139F06D200EBA47C /* Build configuration list for PBXProject "Cloud Ready Configuration Utility" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AAE2A457139F06D200EBA47C;
+			productRefGroup = AAE2A463139F06D300EBA47C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAE2A461139F06D300EBA47C /* Cloud Ready Configuration Utility */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAE2A460139F06D300EBA47C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAE2A471139F06D300EBA47C /* InfoPlist.strings in Resources */,
+				AAE2A47D139F06D300EBA47C /* MainMenu.xib in Resources */,
+				AA8E4AE513A15C3400ABB2C1 /* cloud_power_sml.png in Resources */,
+				AA4FE0CE13A96BD200D29B7B /* ServiceConfiguration-ACS.cscfg in Resources */,
+				AA4FE0D013A96FAC00D29B7B /* ServiceConfiguration-Mem.cscfg in Resources */,
+				AA44E49413CBCF7B0081A35E /* cloudicon.png in Resources */,
+				AA4FE0D513A98E4200D29B7B /* azure3.icns in Resources */,
+				AA4FE0DF13A991E500D29B7B /* help.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DEF0D45C1458D0F0005B920B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAE2A45E139F06D300EBA47C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAE2A474139F06D300EBA47C /* main.m in Sources */,
+				AAE2A47A139F06D300EBA47C /* WAToolkitConfigAppDelegate.m in Sources */,
+				AAE2A48A139F0C0100EBA47C /* SourceView.m in Sources */,
+				AAE2A48D139F186800EBA47C /* RootWindowController.m in Sources */,
+				AA4A127213A2F3940045B856 /* AzureURLTransformer.m in Sources */,
+				AA4FE0CB13A9620900D29B7B /* WASimpleBase64.m in Sources */,
+				AA4FE0D313A989E800D29B7B /* MainWindow.m in Sources */,
+				AA27917D13AE8A450042B1FA /* ServiceCall.m in Sources */,
+				AA27918113AE8C3B0042B1FA /* NSString+URLEncode.m in Sources */,
+				AA27918413AFCF170042B1FA /* WAXMLHelper.m in Sources */,
+				AA27918F13AFCFC20042B1FA /* WAAtomPubEntry.m in Sources */,
+				AA27919213AFE5110042B1FA /* WorkerQueue.m in Sources */,
+				AA27919513B01A020042B1FA /* WAMultipartMime.m in Sources */,
+				AA27919813B152050042B1FA /* ConfigureACS.m in Sources */,
+				AA44E49813CBDC8B0081A35E /* NSAttributedString+Hyperlink.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AAE2A46F139F06D300EBA47C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAE2A470139F06D300EBA47C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AAE2A47B139F06D300EBA47C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAE2A47C139F06D300EBA47C /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAE2A47E139F06D300EBA47C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		AAE2A47F139F06D300EBA47C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		AAE2A481139F06D300EBA47C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WAToolkitConfig/Cloud Ready Configuration Utility-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2/**";
+				INFOPLIST_FILE = "WAToolkitConfig/Cloud Ready Configuration Utility-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AAE2A482139F06D300EBA47C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WAToolkitConfig/Cloud Ready Configuration Utility-Prefix.pch";
+				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2/**";
+				INFOPLIST_FILE = "WAToolkitConfig/Cloud Ready Configuration Utility-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAE2A45C139F06D200EBA47C /* Build configuration list for PBXProject "Cloud Ready Configuration Utility" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAE2A47E139F06D300EBA47C /* Debug */,
+				AAE2A47F139F06D300EBA47C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAE2A480139F06D300EBA47C /* Build configuration list for PBXNativeTarget "Cloud Ready Configuration Utility" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAE2A481139F06D300EBA47C /* Debug */,
+				AAE2A482139F06D300EBA47C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAE2A459139F06D200EBA47C /* Project object */;
+}
