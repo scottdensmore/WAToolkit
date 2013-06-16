@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-#import "WAAtomPubEntry.h"
+#import "WAMAtomPubEntry.h"
 #import "WAMXMLHelper.h"
 
-@interface WAAtomPubEntry() {
-@private
+@interface WAMAtomPubEntry () {
+    @private
     xmlNodePtr _node;
 }
 
 @end
 
-@implementation WAAtomPubEntry
+@implementation WAMAtomPubEntry
 
 - (id)initWithNode:(xmlNodePtr)node
 {

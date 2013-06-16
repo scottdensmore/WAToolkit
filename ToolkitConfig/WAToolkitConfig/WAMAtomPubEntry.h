@@ -17,7 +17,7 @@
 #import <Foundation/Foundation.h>
 #import <libxml/tree.h>
 
-@interface WAAtomPubEntry : NSObject
+@interface WAMAtomPubEntry : NSObject
 
 - (id)initWithNode:(xmlNodePtr)node;
 - (void)processContentPropertiesWithBlock:(void (^)(NSString *key, NSString *value, BOOL *stop))block;

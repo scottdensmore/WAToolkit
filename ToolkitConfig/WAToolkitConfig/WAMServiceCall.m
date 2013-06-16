@@ -187,7 +187,7 @@
 }
 
 - (void)    getFromEntity:(NSString *)entity
-         atomEntryHandler:(void (^)(WAAtomPubEntry *entry, BOOL *stop))itemHandler
+         atomEntryHandler:(void (^)(WAMAtomPubEntry *entry, BOOL *stop))itemHandler
     withCompletionHandler:(void (^)(NSError *error))block
 {
     [self getFromEntity:entity withXmlCompletionHandler:^(xmlDocPtr doc, NSError *error)
@@ -200,7 +200,7 @@
             return;
         }
 
-        [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop)
+        [WAMXMLHelper parseAtomPub:doc block:^(WAMAtomPubEntry *entry, NSInteger index, BOOL *stop)
         {
             itemHandler(entry, stop);
         }];
@@ -211,7 +211,7 @@
     }];
 }
 
-- (void)getFromEntity:(NSString *)entity withAtomCompletionHandler:(void (^)(WAAtomPubEntry *entry, NSError *error, BOOL *stop))block
+- (void)getFromEntity:(NSString *)entity withAtomCompletionHandler:(void (^)(WAMAtomPubEntry *entry, NSError *error, BOOL *stop))block
 {
     [self getFromEntity:entity withXmlCompletionHandler:^(xmlDocPtr doc, NSError *error)
     {
@@ -221,7 +221,7 @@
             return;
         }
 
-        [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop)
+        [WAMXMLHelper parseAtomPub:doc block:^(WAMAtomPubEntry *entry, NSInteger index, BOOL *stop)
         {
             block(entry, nil, stop);
         }];

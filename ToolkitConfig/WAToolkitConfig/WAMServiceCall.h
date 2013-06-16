@@ -16,7 +16,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WAMXMLHelper.h"
-#import "WAAtomPubEntry.h"
+#import "WAMAtomPubEntry.h"
 
 @class WAMultipartMime;
 
@@ -30,7 +30,7 @@
 
 - (void)getFromEntity:(NSString *)entity withCompletionHandler:(void (^)(NSData *data, NSError *error))block;
 - (void)getFromEntity:(NSString *)entity withXmlCompletionHandler:(void (^)(xmlDocPtr doc, NSError *error))block;
-- (void)getFromEntity:(NSString *)entity atomEntryHandler:(void (^)(WAAtomPubEntry *entry, BOOL *stop))itemHandler withCompletionHandler:(void (^)(NSError *error))block;
+- (void)getFromEntity:(NSString *)entity atomEntryHandler:(void (^)(WAMAtomPubEntry *entry, BOOL *stop))itemHandler withCompletionHandler:(void (^)(NSError *error))block;
 
 - (void)deleteFromEntity:(NSString *)entity withCompletionHandler:(void (^)(NSError *error))block;
 
