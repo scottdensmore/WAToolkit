@@ -13,7 +13,7 @@
 		AA27918613AFCF460042B1FA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA27918513AFCF460042B1FA /* libxml2.dylib */; };
 		AA27918F13AFCFC20042B1FA /* WAMAtomPubEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27918E13AFCFC10042B1FA /* WAMAtomPubEntry.m */; };
 		AA27919213AFE5110042B1FA /* WAMWorkerQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919113AFE5110042B1FA /* WAMWorkerQueue.m */; };
-		AA27919513B01A020042B1FA /* WAMultipartMime.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919413B019FE0042B1FA /* WAMultipartMime.m */; };
+		AA27919513B01A020042B1FA /* WAMMultipartMime.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919413B019FE0042B1FA /* WAMMultipartMime.m */; };
 		AA27919813B152050042B1FA /* WAMConfigureACS.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919713B152040042B1FA /* WAMConfigureACS.m */; };
 		AA44E49413CBCF7B0081A35E /* cloudicon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA44E49313CBCF7B0081A35E /* cloudicon.png */; };
 		AA44E49813CBDC8B0081A35E /* NSAttributedString+Hyperlink.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44E49713CBDC8B0081A35E /* NSAttributedString+Hyperlink.m */; };
@@ -48,8 +48,8 @@
 		AA27918E13AFCFC10042B1FA /* WAMAtomPubEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMAtomPubEntry.m; sourceTree = "<group>"; };
 		AA27919013AFE5100042B1FA /* WAMWorkerQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMWorkerQueue.h; sourceTree = "<group>"; };
 		AA27919113AFE5110042B1FA /* WAMWorkerQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMWorkerQueue.m; sourceTree = "<group>"; };
-		AA27919313B019FD0042B1FA /* WAMultipartMime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMultipartMime.h; sourceTree = "<group>"; };
-		AA27919413B019FE0042B1FA /* WAMultipartMime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMultipartMime.m; sourceTree = "<group>"; };
+		AA27919313B019FD0042B1FA /* WAMMultipartMime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMMultipartMime.h; sourceTree = "<group>"; };
+		AA27919413B019FE0042B1FA /* WAMMultipartMime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMMultipartMime.m; sourceTree = "<group>"; };
 		AA27919613B152030042B1FA /* WAMConfigureACS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMConfigureACS.h; sourceTree = "<group>"; };
 		AA27919713B152040042B1FA /* WAMConfigureACS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMConfigureACS.m; sourceTree = "<group>"; };
 		AA44E49313CBCF7B0081A35E /* cloudicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudicon.png; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 				AA27918313AFCF160042B1FA /* WAMXMLHelper.m */,
 				AA27919013AFE5100042B1FA /* WAMWorkerQueue.h */,
 				AA27919113AFE5110042B1FA /* WAMWorkerQueue.m */,
-				AA27919313B019FD0042B1FA /* WAMultipartMime.h */,
-				AA27919413B019FE0042B1FA /* WAMultipartMime.m */,
+				AA27919313B019FD0042B1FA /* WAMMultipartMime.h */,
+				AA27919413B019FE0042B1FA /* WAMMultipartMime.m */,
 				AA27919613B152030042B1FA /* WAMConfigureACS.h */,
 				AA27919713B152040042B1FA /* WAMConfigureACS.m */,
 			);
@@ -311,7 +311,7 @@
 				AA27918413AFCF170042B1FA /* WAMXMLHelper.m in Sources */,
 				AA27918F13AFCFC20042B1FA /* WAMAtomPubEntry.m in Sources */,
 				AA27919213AFE5110042B1FA /* WAMWorkerQueue.m in Sources */,
-				AA27919513B01A020042B1FA /* WAMultipartMime.m in Sources */,
+				AA27919513B01A020042B1FA /* WAMMultipartMime.m in Sources */,
 				AA27919813B152050042B1FA /* WAMConfigureACS.m in Sources */,
 				AA44E49813CBDC8B0081A35E /* NSAttributedString+Hyperlink.m in Sources */,
 			);

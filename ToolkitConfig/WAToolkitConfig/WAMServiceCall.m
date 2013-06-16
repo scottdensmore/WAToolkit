@@ -16,7 +16,7 @@
 
 #import "WAMServiceCall.h"
 #import "NSString+URLEncode.h"
-#import "WAMultipartMime.h"
+#import "WAMMultipartMime.h"
 
 @interface NSURLRequest (NSURLRequestWithIgnoreSSL)
 
@@ -245,12 +245,12 @@
     [request start];
 }
 
-- (WAMultipartMime *)createMimeBody
+- (WAMMultipartMime *)createMimeBody
 {
-    return [[WAMultipartMime alloc] initWithServiceClient:self];
+    return [[WAMMultipartMime alloc] initWithServiceClient:self];
 }
 
-- (void)sendBatch:(WAMultipartMime *)mimeBody mimeEntryHandler:(void (^)(xmlDocPtr doc))itemHandler withCompletionHandler:(void (^)(NSError *error))block
+- (void)sendBatch:(WAMMultipartMime *)mimeBody mimeEntryHandler:(void (^)(xmlDocPtr doc))itemHandler withCompletionHandler:(void (^)(NSError *error))block
 {
     NSData *data = [mimeBody data];
     NSString *urlStr = [self URLforEntity:@"$batch"];

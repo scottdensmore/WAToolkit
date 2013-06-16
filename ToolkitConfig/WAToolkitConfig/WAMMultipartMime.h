@@ -15,18 +15,25 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "WAMServiceCall.h"
 
-@class WAMWorkerQueue;
+typedef enum {
+    EdmInt32,
+    EdmInt64,
+    EdmBoolean,
+    EdmBinary,
+    EdmDateTime,
+    EdmString
+} EdmDataType;
 
-@interface WAMConfigureACS : NSObject
+@interface WAMMultipartMime : NSObject
 
-+ (void)configureACSWithServiceNamespace:(NSString *)serviceNamespace
-                           managementKey:(NSString *)managementKey
-                                   realm:(NSString *)realm
-                        relyingPartyName:(NSString *)relyingPartyName
-                               groupName:(NSString *)groupName
-                              signingKey:(NSString *)signingKey
-                          statusCallback:(void (^)(NSString *status))status
-                   withCompletionHandler:(void (^)(NSDictionary *values, NSError *error))block;
+- (id)initWithServiceClient:(WAMServiceCall *)client;
+
+- (void)appendDataWithAtomPubEntity:(NSString *)entity term:(NSString *)term, ...NS_REQUIRES_NIL_TERMINATION;
+
+- (NSData *)data;
+
+@property (readonly) NSString *batchIdentity;
 
 @end

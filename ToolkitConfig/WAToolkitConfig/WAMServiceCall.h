@@ -18,7 +18,7 @@
 #import "WAMXMLHelper.h"
 #import "WAMAtomPubEntry.h"
 
-@class WAMultipartMime;
+@class WAMMultipartMime;
 
 @interface WAMServiceCall : NSObject
 
@@ -34,8 +34,8 @@
 
 - (void)deleteFromEntity:(NSString *)entity withCompletionHandler:(void (^)(NSError *error))block;
 
-- (WAMultipartMime *)createMimeBody;
-- (void)sendBatch:(WAMultipartMime *)mimeBody mimeEntryHandler:(void (^)(xmlDocPtr doc))itemHandler withCompletionHandler:(void (^)(NSError *error))block;
+- (WAMMultipartMime *)createMimeBody;
+- (void)sendBatch:(WAMMultipartMime *)mimeBody mimeEntryHandler:(void (^)(xmlDocPtr doc))itemHandler withCompletionHandler:(void (^)(NSError *error))block;
 
 + (NSString *)iso8601StringFromDate:(NSDate *)date;
 
