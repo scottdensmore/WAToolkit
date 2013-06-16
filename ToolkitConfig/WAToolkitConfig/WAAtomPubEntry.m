@@ -15,7 +15,7 @@
  */
 
 #import "WAAtomPubEntry.h"
-#import "WAXMLHelper.h"
+#import "WAMXMLHelper.h"
 
 @interface WAAtomPubEntry() {
 @private
@@ -37,12 +37,12 @@
 
 - (NSString *)identity
 {
-    return [WAXMLHelper getElementValue:_node name:@"id"];
+    return [WAMXMLHelper getElementValue:_node name:@"id"];
 }
 
 - (void)processContentPropertiesWithBlock:(void (^)(NSString *key, NSString *value, BOOL *stop))block
 {
-    [WAXMLHelper performXPath:@"_default:content/m:properties/*" onNode:_node block:^(xmlNodePtr child, BOOL *stop) {
+    [WAMXMLHelper performXPath:@"_default:content/m:properties/*" onNode:_node block:^(xmlNodePtr child, BOOL *stop) {
         xmlChar *xmlValue = xmlNodeGetContent(child);
         NSString *name = @((const char *)child->name);
         NSString *value = @((const char *)xmlValue);

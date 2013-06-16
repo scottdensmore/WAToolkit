@@ -173,7 +173,7 @@
 
         xmlDocPtr doc = xmlReadMemory([data bytes], (int)[data length], baseURL, encoding, (XML_PARSE_NOCDATA | XML_PARSE_NOBLANKS));
 
-        error = [WAXMLHelper checkForError:doc];
+        error = [WAMXMLHelper checkForError:doc];
 
         if (error) {
             xmlFreeDoc(doc);
@@ -200,7 +200,7 @@
             return;
         }
 
-        [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop)
+        [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop)
         {
             itemHandler(entry, stop);
         }];
@@ -221,7 +221,7 @@
             return;
         }
 
-        [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop)
+        [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop)
         {
             block(entry, nil, stop);
         }];
@@ -307,7 +307,7 @@
                     const char *encoding = NULL;
                     xmlDocPtr doc = xmlReadMemory([bodyData bytes], (int)[bodyData length], baseURL, encoding, (XML_PARSE_NOCDATA | XML_PARSE_NOBLANKS));
 
-                    error = [WAXMLHelper checkForError:doc];
+                    error = [WAMXMLHelper checkForError:doc];
 
                     if (error) {
                         xmlFreeDoc(doc);

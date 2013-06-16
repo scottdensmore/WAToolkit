@@ -36,7 +36,7 @@
 	 
 	 [queue.client sendBatch:mime mimeEntryHandler:^(xmlDocPtr doc) 
 	  {
-		  [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+		  [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 		   {
 			   long long issuerKey = [[entry objectForKey:@"Id"] longLongValue];
 			   NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithObject:@(issuerKey) forKey:@"Issuer"];
@@ -60,7 +60,7 @@
 				
 				[queue.client sendBatch:mime mimeEntryHandler:^(xmlDocPtr doc) 
 				 {
-					 [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+					 [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 					  {
 						  long long identityProviderKey = [[entry objectForKey:@"Id"] longLongValue];
 						  dictionary[@"IdentityProvider"] = @(identityProviderKey);
@@ -101,7 +101,7 @@
 		__weak NSMutableArray *array = [NSMutableArray arrayWithCapacity:10];
 		
 		// see if we can find this entry...
-		[WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+		[WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 		 {
 			 [array addObject:[entry objectForKey:@"Id"]];
 		 }];
@@ -122,7 +122,7 @@
 		
 		[queue.client sendBatch:mime mimeEntryHandler:^(xmlDocPtr doc) 
 		 {
-			 [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+			 [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 			  {					  
 			  }];
 		 }
@@ -160,7 +160,7 @@
 		
 		[queue.client sendBatch:mime mimeEntryHandler:^(xmlDocPtr doc) 
 		 {
-			 [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+			 [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 			  {			
 				  NSString *idStr = [entry objectForKey:@"Id"];
 				  if(idStr)
@@ -197,7 +197,7 @@
 		__block BOOL found = NO;
 		
 		// see if we can find this entry...
-		[WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+		[WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 		 {
 			 NSString *idStr = [entry objectForKey:@"Id"];
 			 if(idStr)
@@ -261,7 +261,7 @@
 		
 		[queue.client sendBatch:mime mimeEntryHandler:^(xmlDocPtr doc) 
 		 {
-			 [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+			 [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 			  {			
 				  NSString *idStr = [entry objectForKey:@"Id"];
 				  if(idStr)
@@ -316,7 +316,7 @@
 					  
 					  [queue.client sendBatch:mime mimeEntryHandler:^(xmlDocPtr doc) 
 					   {
-						   [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+						   [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 							{			
 								NSString *idStr = [entry objectForKey:@"Id"];
 								if(idStr)
@@ -384,7 +384,7 @@
 		__block BOOL found = NO;
 		
 		// see if we can find this entry...
-		[WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+		[WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 		 {
 			 NSString *idStr = [entry objectForKey:@"Id"];
 			 if(idStr)
@@ -452,7 +452,7 @@
 	
 	[queue.client sendBatch:mime mimeEntryHandler:^(xmlDocPtr doc) 
 	 {
-		 [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+		 [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 		  {			
 			  NSString *idStr = [entry objectForKey:@"Id"];
 			  if(idStr)
@@ -488,7 +488,7 @@
 		 }
 
 		 // see if we can find this entry...
-		 [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+		 [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 		  {
 			  NSString *idStr = [entry objectForKey:@"Id"];
 			  if(idStr)
@@ -534,7 +534,7 @@
 		__block BOOL found = NO;
 		
 		// see if we can find this entry...
-		[WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+		[WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 		 {
 			 NSString *idStr = [entry objectForKey:@"Id"];
 			 if(idStr)
@@ -607,7 +607,7 @@
 	
 	[queue.client sendBatch:mime mimeEntryHandler:^(xmlDocPtr doc) 
 	 {
-		 [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+		 [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 		  {			
 			  NSString *idStr = [entry objectForKey:@"Id"];
 			  if(idStr)
@@ -659,7 +659,7 @@
 		 NSMutableArray *names = [NSMutableArray arrayWithCapacity:identityProviders.count];
 		 NSMutableArray *requests = [NSMutableArray arrayWithCapacity:identityProviders.count];
 		 
-		 [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+		 [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 		 {
 			 NSString *displayName = [entry objectForKey:@"DisplayName"];
 			 
@@ -721,7 +721,7 @@
 	
 	[queue.client sendBatch:mime mimeEntryHandler:^(xmlDocPtr doc) 
 	 {
-		 [WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
+		 [WAMXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
 		  {			
 			  NSString *idStr = [entry objectForKey:@"Id"];
 			  if(idStr)

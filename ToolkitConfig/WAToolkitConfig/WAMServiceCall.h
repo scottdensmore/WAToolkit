@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "WAXMLHelper.h"
+#import "WAMXMLHelper.h"
 #import "WAAtomPubEntry.h"
 
 @class WAMultipartMime;

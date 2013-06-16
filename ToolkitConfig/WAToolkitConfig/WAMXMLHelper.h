@@ -20,9 +20,8 @@
 #import <libxml/xpath.h>
 #import <libxml/xpathInternals.h>
 #import "WAAtomPubEntry.h"
-#import "WAAtomPubEntry.h"
 
-@interface WAXMLHelper : NSObject
+@interface WAMXMLHelper : NSObject
 
 + (void)performXPath:(NSString*)xpath onDocument:(xmlDocPtr)doc block:(void (^)(xmlNodePtr, BOOL *stop))block;
 + (void)performXPath:(NSString*)xpath onNode:(xmlNodePtr)node block:(void (^)(xmlNodePtr node, BOOL *stop))block;

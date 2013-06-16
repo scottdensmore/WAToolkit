@@ -14,10 +14,10 @@
  limitations under the License.
  */
 
-#import "WAXMLHelper.h"
+#import "WAMXMLHelper.h"
 
 
-@implementation WAXMLHelper
+@implementation WAMXMLHelper
 
 + (void)performXPath:(NSString*)xpath onDocument:(xmlDocPtr)doc block:(void (^)(xmlNodePtr node, BOOL *stop))block
 {
@@ -152,7 +152,7 @@
 	
 	__block NSInteger index = 0;
 	
-    [WAXMLHelper performXPath:@"/_default:feed/_default:entry" onDocument:doc block:^(xmlNodePtr node, BOOL* stop)
+    [WAMXMLHelper performXPath:@"/_default:feed/_default:entry" onDocument:doc block:^(xmlNodePtr node, BOOL* stop)
      {
          WAAtomPubEntry* entry = [[WAAtomPubEntry alloc] initWithNode:node];
          block(entry, index++, stop);

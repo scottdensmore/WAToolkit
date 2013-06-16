@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA27917D13AE8A450042B1FA /* WAMServiceCall.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27917C13AE8A450042B1FA /* WAMServiceCall.m */; };
 		AA27918113AE8C3B0042B1FA /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27918013AE8C3B0042B1FA /* NSString+URLEncode.m */; };
-		AA27918413AFCF170042B1FA /* WAXMLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27918313AFCF160042B1FA /* WAXMLHelper.m */; };
+		AA27918413AFCF170042B1FA /* WAMXMLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27918313AFCF160042B1FA /* WAMXMLHelper.m */; };
 		AA27918613AFCF460042B1FA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA27918513AFCF460042B1FA /* libxml2.dylib */; };
 		AA27918F13AFCFC20042B1FA /* WAAtomPubEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27918E13AFCFC10042B1FA /* WAAtomPubEntry.m */; };
 		AA27919213AFE5110042B1FA /* WorkerQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919113AFE5110042B1FA /* WorkerQueue.m */; };
@@ -41,8 +41,8 @@
 		AA27917C13AE8A450042B1FA /* WAMServiceCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMServiceCall.m; sourceTree = "<group>"; };
 		AA27917E13AE8C190042B1FA /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
 		AA27918013AE8C3B0042B1FA /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
-		AA27918213AFCF160042B1FA /* WAXMLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAXMLHelper.h; sourceTree = "<group>"; };
-		AA27918313AFCF160042B1FA /* WAXMLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAXMLHelper.m; sourceTree = "<group>"; };
+		AA27918213AFCF160042B1FA /* WAMXMLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMXMLHelper.h; sourceTree = "<group>"; };
+		AA27918313AFCF160042B1FA /* WAMXMLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMXMLHelper.m; sourceTree = "<group>"; };
 		AA27918513AFCF460042B1FA /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		AA27918D13AFCFC10042B1FA /* WAAtomPubEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAAtomPubEntry.h; sourceTree = "<group>"; };
 		AA27918E13AFCFC10042B1FA /* WAAtomPubEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAAtomPubEntry.m; sourceTree = "<group>"; };
@@ -111,8 +111,8 @@
 				AA27917C13AE8A450042B1FA /* WAMServiceCall.m */,
 				AA27918D13AFCFC10042B1FA /* WAAtomPubEntry.h */,
 				AA27918E13AFCFC10042B1FA /* WAAtomPubEntry.m */,
-				AA27918213AFCF160042B1FA /* WAXMLHelper.h */,
-				AA27918313AFCF160042B1FA /* WAXMLHelper.m */,
+				AA27918213AFCF160042B1FA /* WAMXMLHelper.h */,
+				AA27918313AFCF160042B1FA /* WAMXMLHelper.m */,
 				AA27919013AFE5100042B1FA /* WorkerQueue.h */,
 				AA27919113AFE5110042B1FA /* WorkerQueue.m */,
 				AA27919313B019FD0042B1FA /* WAMultipartMime.h */,
@@ -308,7 +308,7 @@
 				AA4FE0D313A989E800D29B7B /* MainWindow.m in Sources */,
 				AA27917D13AE8A450042B1FA /* WAMServiceCall.m in Sources */,
 				AA27918113AE8C3B0042B1FA /* NSString+URLEncode.m in Sources */,
-				AA27918413AFCF170042B1FA /* WAXMLHelper.m in Sources */,
+				AA27918413AFCF170042B1FA /* WAMXMLHelper.m in Sources */,
 				AA27918F13AFCFC20042B1FA /* WAAtomPubEntry.m in Sources */,
 				AA27919213AFE5110042B1FA /* WorkerQueue.m in Sources */,
 				AA27919513B01A020042B1FA /* WAMultipartMime.m in Sources */,
