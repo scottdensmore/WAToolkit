@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "ServiceCall.h"
+#import "WAMServiceCall.h"
 
 typedef enum
 {
@@ -29,7 +29,7 @@ typedef enum
 
 @interface WAMultipartMime : NSObject {
 @private
-	ServiceCall *_client;
+	WAMServiceCall *_client;
 	NSString *_batch;
 	NSString *_changeSet;
     NSMutableData *_data;
@@ -37,7 +37,7 @@ typedef enum
 	BOOL _closed;
 }
 
-- (id)initWithServiceClient:(ServiceCall *)client;
+- (id)initWithServiceClient:(WAMServiceCall *)client;
 
 - (void)appendDataWithAtomPubEntity:(NSString*)entity term:(NSString*)term, ... NS_REQUIRES_NIL_TERMINATION;
 

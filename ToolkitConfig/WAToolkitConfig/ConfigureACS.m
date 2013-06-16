@@ -15,7 +15,7 @@
  */
 
 #import "ConfigureACS.h"
-#import "ServiceCall.h"
+#import "WAMServiceCall.h"
 #import "WorkerQueue.h"
 #import "WAMultipartMime.h"
 #import "WASimpleBase64.h"
@@ -851,9 +851,9 @@
 	
 	queue.status = @"Authenticating";
 	 
-	[ServiceCall obtainTokenFromNamespace:serviceNamespace
+	[WAMServiceCall obtainTokenFromNamespace:serviceNamespace
 							managementKey:managementKey
-					withCompletionHandler:^(NSInteger statusCode, NSError *error, ServiceCall *client)
+					withCompletionHandler:^(NSInteger statusCode, NSError *error, WAMServiceCall *client)
 	 {
 		 if(error)
 		 {

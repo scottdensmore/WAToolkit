@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-#import "ServiceCall.h"
+#import "WAMServiceCall.h"
 #import "NSString+URLEncode.h"
 #import "WAMultipartMime.h"
 
@@ -33,7 +33,7 @@
 
 @end
 
-@interface ServiceRequest : NSObject 
+@interface WAMServiceRequest : NSObject
 {
 @private
 	NSURLConnection *_connection;
@@ -43,14 +43,23 @@
     NSMutableURLRequest *_request;
 }
 
-+ (ServiceRequest *) serviceRequestWithURL:(NSString*)url httpMethod:(NSString*)httpMethod payload:(NSData*)payload contentType:(NSString*)contentType token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData* response, NSError* error))block;
-+ (ServiceRequest *) serviceRequestWithURL:(NSString*)url token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData* response, NSError* error))block;
++ (WAMServiceRequest *) serviceRequestWithURL:(NSString*)url httpMethod:(NSString*)httpMethod payload:(NSData*)payload contentType:(NSString*)contentType token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData* response, NSError* error))block;
++ (WAMServiceRequest *) serviceRequestWithURL:(NSString*)url token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData* response, NSError* error))block;
 
 - (void)start;
 
 @end
 
-@implementation ServiceCall
+@interface WAMServiceCall()
+{
+@private
+    NSString *_serviceNamespace;
+    NSString *_rawToken;
+    NSString* _token;
+}
+@end
+
+@implementation WAMServiceCall
 
 - (id) initWithServiceNamespace:(NSString*)namespace token:(NSString*)token
 {
@@ -93,14 +102,14 @@
 	return [NSString stringWithFormat:@"https://%@.accesscontrol.windows.net/v2/mgmt/service/%@", _serviceNamespace, entity];
 }
 
-+ (void) obtainTokenFromNamespace:(NSString*)serviceNamespace managementKey:(NSString*)managementKey withCompletionHandler:(void (^)(NSInteger statusCode, NSError* error, ServiceCall* client))block
++ (void) obtainTokenFromNamespace:(NSString*)serviceNamespace managementKey:(NSString*)managementKey withCompletionHandler:(void (^)(NSInteger statusCode, NSError* error, WAMServiceCall* client))block
 {
 	NSString* urlStr = [NSString stringWithFormat:@"https://%@.accesscontrol.windows.net/WRAPv0.9/", serviceNamespace];
 	NSString* scope = [NSString stringWithFormat:@"https://%@.accesscontrol.windows.net/v2/mgmt/service/", serviceNamespace];
 	NSString* payload = [NSString stringWithFormat:@"wrap_name=ManagementClient&wrap_password=%@&wrap_scope=%@",
 						 [managementKey URLEncode], [scope URLEncode]];
 	
-	ServiceRequest* request = [ServiceRequest serviceRequestWithURL:urlStr
+	WAMServiceRequest* request = [WAMServiceRequest serviceRequestWithURL:urlStr
 									 httpMethod:@"POST" 
 										payload:[payload dataUsingEncoding:NSUTF8StringEncoding] 
 									contentType:@"application/x-www-form-urlencoded; charset=UTF-8"
@@ -121,7 +130,7 @@
 				  if([s hasPrefix:@"wrap_access_token="])
 				  {
 					  NSString* token = [s substringFromIndex:18];
-					  ServiceCall* client = [[ServiceCall alloc] initWithServiceNamespace:serviceNamespace token:token];
+					  WAMServiceCall* client = [[WAMServiceCall alloc] initWithServiceNamespace:serviceNamespace token:token];
 					  
 					  block(200, error, client);
 					  break;
@@ -137,7 +146,7 @@
 {
 	NSString* urlStr = [self URLforEntity:entity];
 	
-	ServiceRequest* request = [ServiceRequest serviceRequestWithURL:urlStr
+	WAMServiceRequest* request = [WAMServiceRequest serviceRequestWithURL:urlStr
 										  token:_token 
 						  withCompletionHandler:^(NSInteger statusCode, NSData *response, NSError *error) {
 							  if(error)
@@ -234,7 +243,7 @@
 {
 	NSString* urlStr = [self URLforEntity:entity];
 	
-	ServiceRequest* request = [ServiceRequest serviceRequestWithURL:urlStr
+	WAMServiceRequest* request = [WAMServiceRequest serviceRequestWithURL:urlStr
 									 httpMethod:@"DELETE" 
 										payload:nil 
 									contentType:nil
@@ -263,7 +272,7 @@
 	LOGLINE(@"%@", str1);	
 #endif
 	
-	ServiceRequest* request = [ServiceRequest serviceRequestWithURL:urlStr
+	WAMServiceRequest* request = [WAMServiceRequest serviceRequestWithURL:urlStr
 									 httpMethod:@"POST" 
 										payload:data 
 									contentType:contentType
@@ -390,7 +399,7 @@
 														   														   
 @end
 	
-@implementation ServiceRequest
+@implementation WAMServiceRequest
 
 - (id)initServiceRequestWithURL:(NSString *)url httpMethod:(NSString *)httpMethod payload:(NSData*)payload contentType:(NSString *)contentType token:(NSString *)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData *response, NSError *error))block
 {
@@ -432,12 +441,12 @@
 }
 
 
-+ (ServiceRequest *)serviceRequestWithURL:(NSString *)url httpMethod:(NSString *)httpMethod payload:(NSData *)payload contentType:(NSString *)contentType token:(NSString *)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData *response, NSError *error))block
++ (WAMServiceRequest *)serviceRequestWithURL:(NSString *)url httpMethod:(NSString *)httpMethod payload:(NSData *)payload contentType:(NSString *)contentType token:(NSString *)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData *response, NSError *error))block
 {
 	return [[self alloc] initServiceRequestWithURL:url httpMethod:httpMethod payload:payload contentType:contentType token:token withCompletionHandler:block];
 }
 
-+ (ServiceRequest *)serviceRequestWithURL:(NSString *)url token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData *response, NSError *error))block
++ (WAMServiceRequest *)serviceRequestWithURL:(NSString *)url token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData *response, NSError *error))block
 {
 	return [[self alloc] initServiceRequestWithURL:url httpMethod:@"GET" payload:nil contentType:nil token:token withCompletionHandler:block];
 }

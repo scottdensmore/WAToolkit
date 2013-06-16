@@ -17,7 +17,7 @@
 #import <Foundation/Foundation.h>
 
 @class WorkerQueue;
-@class ServiceCall;
+@class WAMServiceCall;
 typedef void (^WorkerQueueBlock)(WorkerQueue *queue);
 
 @interface WorkerQueue : NSObject {
@@ -27,7 +27,7 @@ typedef void (^WorkerQueueBlock)(WorkerQueue *queue);
 	NSError *_error;
 	WorkerQueueBlock _completionHandler;
 	BOOL _complete;
-	ServiceCall *_client;
+	WAMServiceCall *_client;
 	void(^_statusCallback)(NSString *);
 }
 
@@ -40,7 +40,7 @@ typedef void (^WorkerQueueBlock)(WorkerQueue *queue);
 - (void)setStatusTarget:(void(^)(NSString *))statusCallback;
 
 @property (strong) NSError *error;
-@property (strong) ServiceCall *client;
+@property (strong) WAMServiceCall *client;
 
 @property (weak) NSString *status;
 @property (readonly) NSDictionary *values;

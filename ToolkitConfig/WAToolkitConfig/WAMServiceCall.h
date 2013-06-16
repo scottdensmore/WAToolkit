@@ -20,16 +20,16 @@
 
 @class WAMultipartMime;
 
-@interface ServiceCall : NSObject {
-@private
-    NSString *_serviceNamespace;
-    NSString *_rawToken;
-    NSString* _token;
+@interface WAMServiceCall : NSObject {
+//@private
+//    NSString *_serviceNamespace;
+//    NSString *_rawToken;
+//    NSString* _token;
 }
 
 + (void) obtainTokenFromNamespace:(NSString *)serviceNamespace 
 					managementKey:(NSString *)key 
-			withCompletionHandler:(void (^)(NSInteger statusCode, NSError *error, ServiceCall *client))block;
+			withCompletionHandler:(void (^)(NSInteger statusCode, NSError *error, WAMServiceCall *client))block;
 
 - (NSString *)URLforEntity:(NSString *)entity;
 

@@ -15,7 +15,7 @@
  */
 
 #import "WorkerQueue.h"
-#import "ServiceCall.h"
+#import "WAMServiceCall.h"
 
 @implementation WorkerQueue
 

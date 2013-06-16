@@ -31,7 +31,7 @@
 
 @synthesize batchIdentity = _batch;
 
-- (id)initWithServiceClient:(ServiceCall *)client
+- (id)initWithServiceClient:(WAMServiceCall *)client
 {
 	if((self = [super init]))
 	{
@@ -114,7 +114,7 @@
 	
 	xmlTextWriterStartElement(writer, BAD_CAST "updated");
 	
-	xmlTextWriterWriteString(writer, BAD_CAST [[ServiceCall iso8601StringFromDate:[NSDate date]] UTF8String]);
+	xmlTextWriterWriteString(writer, BAD_CAST [[WAMServiceCall iso8601StringFromDate:[NSDate date]] UTF8String]);
 	xmlTextWriterEndElement(writer); // </updated>
 	
 	xmlTextWriterStartElement(writer, BAD_CAST "id");
@@ -198,7 +198,7 @@
 				}
 				else
 				{
-					NSString *str = [ServiceCall iso8601StringFromDate:value];
+					NSString *str = [WAMServiceCall iso8601StringFromDate:value];
 					xmlTextWriterWriteString(writer, BAD_CAST [str UTF8String]);
 				}
 				break;
