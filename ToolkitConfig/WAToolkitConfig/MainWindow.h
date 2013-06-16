@@ -17,9 +17,6 @@
 #import <Foundation/Foundation.h>
 
 
-@interface MainWindow : NSWindow {
-@private
-    
-}
+@interface MainWindow : NSWindow 
 
 @end
