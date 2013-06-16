@@ -14,7 +14,7 @@
 		AA27918F13AFCFC20042B1FA /* WAMAtomPubEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27918E13AFCFC10042B1FA /* WAMAtomPubEntry.m */; };
 		AA27919213AFE5110042B1FA /* WAMWorkerQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919113AFE5110042B1FA /* WAMWorkerQueue.m */; };
 		AA27919513B01A020042B1FA /* WAMultipartMime.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919413B019FE0042B1FA /* WAMultipartMime.m */; };
-		AA27919813B152050042B1FA /* ConfigureACS.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919713B152040042B1FA /* ConfigureACS.m */; };
+		AA27919813B152050042B1FA /* WAMConfigureACS.m in Sources */ = {isa = PBXBuildFile; fileRef = AA27919713B152040042B1FA /* WAMConfigureACS.m */; };
 		AA44E49413CBCF7B0081A35E /* cloudicon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA44E49313CBCF7B0081A35E /* cloudicon.png */; };
 		AA44E49813CBDC8B0081A35E /* NSAttributedString+Hyperlink.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44E49713CBDC8B0081A35E /* NSAttributedString+Hyperlink.m */; };
 		AA4A123F13A2DC120045B856 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4A123E13A2DC120045B856 /* Security.framework */; };
@@ -50,8 +50,8 @@
 		AA27919113AFE5110042B1FA /* WAMWorkerQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMWorkerQueue.m; sourceTree = "<group>"; };
 		AA27919313B019FD0042B1FA /* WAMultipartMime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMultipartMime.h; sourceTree = "<group>"; };
 		AA27919413B019FE0042B1FA /* WAMultipartMime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMultipartMime.m; sourceTree = "<group>"; };
-		AA27919613B152030042B1FA /* ConfigureACS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigureACS.h; sourceTree = "<group>"; };
-		AA27919713B152040042B1FA /* ConfigureACS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigureACS.m; sourceTree = "<group>"; };
+		AA27919613B152030042B1FA /* WAMConfigureACS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMConfigureACS.h; sourceTree = "<group>"; };
+		AA27919713B152040042B1FA /* WAMConfigureACS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMConfigureACS.m; sourceTree = "<group>"; };
 		AA44E49313CBCF7B0081A35E /* cloudicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudicon.png; sourceTree = "<group>"; };
 		AA44E49613CBDC8B0081A35E /* NSAttributedString+Hyperlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Hyperlink.h"; sourceTree = "<group>"; };
 		AA44E49713CBDC8B0081A35E /* NSAttributedString+Hyperlink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Hyperlink.m"; sourceTree = "<group>"; };
@@ -117,8 +117,8 @@
 				AA27919113AFE5110042B1FA /* WAMWorkerQueue.m */,
 				AA27919313B019FD0042B1FA /* WAMultipartMime.h */,
 				AA27919413B019FE0042B1FA /* WAMultipartMime.m */,
-				AA27919613B152030042B1FA /* ConfigureACS.h */,
-				AA27919713B152040042B1FA /* ConfigureACS.m */,
+				AA27919613B152030042B1FA /* WAMConfigureACS.h */,
+				AA27919713B152040042B1FA /* WAMConfigureACS.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 				AA27918F13AFCFC20042B1FA /* WAMAtomPubEntry.m in Sources */,
 				AA27919213AFE5110042B1FA /* WAMWorkerQueue.m in Sources */,
 				AA27919513B01A020042B1FA /* WAMultipartMime.m in Sources */,
-				AA27919813B152050042B1FA /* ConfigureACS.m in Sources */,
+				AA27919813B152050042B1FA /* WAMConfigureACS.m in Sources */,
 				AA44E49813CBDC8B0081A35E /* NSAttributedString+Hyperlink.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

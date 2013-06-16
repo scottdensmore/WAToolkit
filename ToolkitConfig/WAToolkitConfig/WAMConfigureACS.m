@@ -14,14 +14,14 @@
  limitations under the License.
  */
 
-#import "ConfigureACS.h"
+#import "WAMConfigureACS.h"
 #import "WAMServiceCall.h"
 #import "WAMWorkerQueue.h"
 #import "WAMultipartMime.h"
 #import "WASimpleBase64.h"
 #import "NSString+URLEncode.h"
 
-@implementation ConfigureACS
+@implementation WAMConfigureACS
 
 + (void)addIssuerToQueue:(WAMWorkerQueue *)queue name:(NSString *)providerName withCompletionHandler:(void (^)(long long identity))block
 {

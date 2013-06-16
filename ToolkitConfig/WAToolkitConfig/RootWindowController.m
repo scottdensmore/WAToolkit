@@ -16,7 +16,7 @@
 
 #import "RootWindowController.h"
 #import "WASimpleBase64.h"
-#import "ConfigureACS.h"
+#import "WAMConfigureACS.h"
 #import "NSAttributedString+Hyperlink.h"
 #import <Security/Security.h>
 #include <CommonCrypto/CommonDigest.h>
@@ -543,7 +543,7 @@ typedef enum {
 	
 	__block int progress = 0;
 	
-	[ConfigureACS configureACSWithServiceNamespace:fieldACSNamespace
+	[WAMConfigureACS configureACSWithServiceNamespace:fieldACSNamespace
 									 managementKey:fieldACSManagementKey
 											 realm:self.fieldACSRealm
 								  relyingPartyName:self.fieldACSRelyingName

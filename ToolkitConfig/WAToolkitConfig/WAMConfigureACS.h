@@ -18,7 +18,7 @@
 
 @class WAMWorkerQueue;
 
-@interface ConfigureACS : NSObject
+@interface WAMConfigureACS : NSObject
 
 + (void)configureACSWithServiceNamespace:(NSString *)serviceNamespace 
                            managementKey:(NSString *)managementKey 
