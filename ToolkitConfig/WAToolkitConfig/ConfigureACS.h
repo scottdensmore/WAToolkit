@@ -16,7 +16,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class WorkerQueue;
+@class WAMWorkerQueue;
 
 @interface ConfigureACS : NSObject
 

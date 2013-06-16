@@ -16,14 +16,14 @@
 
 #import "ConfigureACS.h"
 #import "WAMServiceCall.h"
-#import "WorkerQueue.h"
+#import "WAMWorkerQueue.h"
 #import "WAMultipartMime.h"
 #import "WASimpleBase64.h"
 #import "NSString+URLEncode.h"
 
 @implementation ConfigureACS
 
-+ (void)addIssuerToQueue:(WorkerQueue *)queue name:(NSString *)providerName withCompletionHandler:(void (^)(long long identity))block
++ (void)addIssuerToQueue:(WAMWorkerQueue *)queue name:(NSString *)providerName withCompletionHandler:(void (^)(long long identity))block
 {
 	 WAMultipartMime *mime = [queue.client createMimeBody];
 	 [mime appendDataWithAtomPubEntity:@"Issuers" 
@@ -89,7 +89,7 @@
 	  }];
 }
 
-+ (void)addRelyingPartiesWithQueue:(WorkerQueue *)queue identity:(long long)identity withCompletionHandler:(void(^)())block
++ (void)addRelyingPartiesWithQueue:(WAMWorkerQueue *)queue identity:(long long)identity withCompletionHandler:(void(^)())block
 {
 	[queue.client getFromEntity:@"RelyingParties" withXmlCompletionHandler:^(xmlDocPtr doc, NSError *error) {
 		if(error)
@@ -139,7 +139,7 @@
 	}];
 }
 
-+ (void)addRelyingPartyWithQueue:(WorkerQueue *)queue name:(NSString *)name withCompletionHandler:(void(^)())block
++ (void)addRelyingPartyWithQueue:(WAMWorkerQueue *)queue name:(NSString *)name withCompletionHandler:(void(^)())block
 {
 	void (^completionBlock)() = ^()
 	{
@@ -245,7 +245,7 @@
 	}];
 }
 
-+ (void)addRulesWithQueue:(WorkerQueue *)queue name:(NSString *)name group:(NSString *)group realm:(NSString *)realm signingKey:(NSString *)signingKey withCompletionHandler:(void(^)(long long ruleGroupId))block
++ (void)addRulesWithQueue:(WAMWorkerQueue *)queue name:(NSString *)name group:(NSString *)group realm:(NSString *)realm signingKey:(NSString *)signingKey withCompletionHandler:(void(^)(long long ruleGroupId))block
 {
 	void (^completionBlock)() = ^()
 	{
@@ -432,7 +432,7 @@
 	}];
 }
 
-+ (void)addSignInWithQueue:(WorkerQueue *)queue 
++ (void)addSignInWithQueue:(WAMWorkerQueue *)queue 
 				  identity:(long long)identity 
 			  providerName:(NSString *)providerName 
 				  endpoint:(NSString *)endpoint
@@ -475,7 +475,7 @@
 	 }];
 }
 
-+ (void)getIdentityProvider:(WorkerQueue *)queue providerName:(NSString *)providerName withCompletionHandler:(void (^)())block
++ (void)getIdentityProvider:(WAMWorkerQueue *)queue providerName:(NSString *)providerName withCompletionHandler:(void (^)())block
 {
 	NSString *identityProviders = [NSString stringWithFormat:@"IdentityProviders()?$filter=DisplayName%%20eq%%20'%@'&$top=1", [providerName URLEncode]];
 
@@ -504,7 +504,7 @@
 	 }];
 }
 
-+ (void)addIdentityProviderWithQueue:(WorkerQueue *)queue providerName:(NSString *)providerName endpoint:(NSString *)endpoint withCompletionHandler:(void (^)())block
++ (void)addIdentityProviderWithQueue:(WAMWorkerQueue *)queue providerName:(NSString *)providerName endpoint:(NSString *)endpoint withCompletionHandler:(void (^)())block
 {
 	void (^completionBlock)() = ^
 	{
@@ -597,7 +597,7 @@
 	}];
 }
 
-+ (void) processPassthoughRulesWithQueue:(WorkerQueue *)queue 
++ (void) processPassthoughRulesWithQueue:(WAMWorkerQueue *)queue 
 								   names:(NSMutableArray *)names 
 								requests:(NSMutableArray *)requests 
 				   withCompletionHandler:(void(^)())block
@@ -647,7 +647,7 @@
 	 }];
 }
 
-+ (void)addPassthroughRulesWithQueue:(WorkerQueue *)queue 
++ (void)addPassthroughRulesWithQueue:(WAMWorkerQueue *)queue 
 						  ruleGroupId:(long long)ruleGroupId
 					identityProviders:(NSArray *)identityProviders
 				withCompletionHandler:(void(^)())block
@@ -711,7 +711,7 @@
 	 }];
 }
 
-+ (void)processPartyIdentityWithQueue:(WorkerQueue *)queue 
++ (void)processPartyIdentityWithQueue:(WAMWorkerQueue *)queue 
 								 names:(NSMutableArray *)names 
 							  requests:(NSMutableArray *)requests 
 				 withCompletionHandler:(void(^)())block
@@ -755,7 +755,7 @@
 	 }];
 }
 
-+ (void)bindPartyIdentitiesWithQueue:(WorkerQueue *)queue identityProviders:(NSArray *)identityProviders withCompletionHandler:(void(^)())block
++ (void)bindPartyIdentitiesWithQueue:(WAMWorkerQueue *)queue identityProviders:(NSArray *)identityProviders withCompletionHandler:(void(^)())block
 {
 	NSMutableArray *names = [NSMutableArray arrayWithCapacity:identityProviders.count];
 	NSMutableArray *requests = [NSMutableArray arrayWithCapacity:identityProviders.count];
@@ -832,12 +832,12 @@
 		CFRelease(data);
 	}
 	
-	WorkerQueue *queue = [WorkerQueue new];
+	WAMWorkerQueue *queue = [WAMWorkerQueue new];
 	
 	[queue setObject:signingKey forKey:@"TokenSigningKey"];
 
 	[queue setStatusTarget:status];
-	[queue setCompletionHandler:^(WorkerQueue *queue) {
+	[queue setCompletionHandler:^(WAMWorkerQueue *queue) {
 		if(queue.error)
 		{
 			block(nil, queue.error);
