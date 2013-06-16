@@ -24,7 +24,6 @@
 @property (weak) IBOutlet NSTabViewItem *tabFileSelection;
 @property (weak) IBOutlet NSTabViewItem *tabAzureSetup;
 @property (weak) IBOutlet NSTabViewItem *tabServiceSelect;
-// @property (weak) IBOutlet NSTabViewItem *tabDirect;
 @property (weak) IBOutlet NSTabViewItem *tabProxyACS;
 @property (weak) IBOutlet NSTabViewItem *tabProxyGeneral;
 @property (weak) IBOutlet NSTabViewItem *tabAPNSImport;
@@ -34,7 +33,6 @@
 @property (weak) IBOutlet NSTextField *directAccessKey;
 @property (weak) IBOutlet NSTextField *acsNamespace;
 @property (weak) IBOutlet NSTextField *acsManagementKey;
-// @property (weak) IBOutlet NSTextField *proxyService;
 @property (weak) IBOutlet NSMatrix *saveType;
 @property (weak) IBOutlet NSProgressIndicator *acsSpinner;
 @property (weak) IBOutlet NSPanel *acsSetupPanel;
