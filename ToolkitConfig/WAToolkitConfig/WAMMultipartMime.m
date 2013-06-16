@@ -16,7 +16,7 @@
 
 #import "WAMMultipartMime.h"
 #import "NSString+URLEncode.h"
-#import "WASimpleBase64.h"
+#import "WAMSimpleBase64.h"
 #include <libxml/xmlwriter.h>
 #include <stdlib.h>
 

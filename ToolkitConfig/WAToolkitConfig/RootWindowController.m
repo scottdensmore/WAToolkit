@@ -15,7 +15,7 @@
  */
 
 #import "RootWindowController.h"
-#import "WASimpleBase64.h"
+#import "WAMSimpleBase64.h"
 #import "WAMConfigureACS.h"
 #import "NSAttributedString+Hyperlink.h"
 #import <Security/Security.h>

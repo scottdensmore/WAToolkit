@@ -17,15 +17,15 @@
 #import "WAMConfigureACS.h"
 #import "WAMServiceCall.h"
 #import "WAMWorkerQueue.h"
-#import "WAMultipartMime.h"
-#import "WASimpleBase64.h"
+#import "WAMMultipartMime.h"
+#import "WAMSimpleBase64.h"
 #import "NSString+URLEncode.h"
 
 @implementation WAMConfigureACS
 
 + (void)addIssuerToQueue:(WAMWorkerQueue *)queue name:(NSString *)providerName withCompletionHandler:(void (^)(long long identity))block
 {
-    WAMultipartMime *mime = [queue.client createMimeBody];
+    WAMMultipartMime *mime = [queue.client createMimeBody];
 
     [mime appendDataWithAtomPubEntity:@"Issuers"
                                  term:@"Issuer",
@@ -44,7 +44,7 @@
             [queue setObject:dictionary forKey:providerName];
             *stop = YES;
 
-            WAMultipartMime *mime = [queue.client createMimeBody];
+            WAMMultipartMime *mime = [queue.client createMimeBody];
             [mime appendDataWithAtomPubEntity:@"IdentityProviders"
                                          term:@"IdentityProvider",
              @"Description", EdmString, [NSNull null],
@@ -106,7 +106,7 @@
             [array addObject:[entry objectForKey:@"Id"]];
         }];
 
-        WAMultipartMime *mime = [queue.client createMimeBody];
+        WAMMultipartMime *mime = [queue.client createMimeBody];
 
         for (NSString * idStr in array) {
             [mime appendDataWithAtomPubEntity:@"RelyingPartyIdentityProviders"
@@ -142,7 +142,7 @@
 {
     void (^completionBlock)() = ^()
     {
-        WAMultipartMime *mime = [queue.client createMimeBody];
+        WAMMultipartMime *mime = [queue.client createMimeBody];
 
         [mime appendDataWithAtomPubEntity:@"RelyingParties"
                                      term:@"RelyingParty",
@@ -245,7 +245,7 @@
 {
     void (^completionBlock)() = ^()
     {
-        WAMultipartMime *mime = [queue.client createMimeBody];
+        WAMMultipartMime *mime = [queue.client createMimeBody];
 
         [mime appendDataWithAtomPubEntity:@"RuleGroups"
                                      term:@"RuleGroup",
@@ -266,7 +266,7 @@
 
                     [queue setObject:@(idValue) forKey:@"RuleGroup"];
 
-                    WAMultipartMime *mime = [queue.client createMimeBody];
+                    WAMMultipartMime *mime = [queue.client createMimeBody];
                     long long relyingParty = [[queue objectForKey:@"RelyingParty"] longLongValue];
 
                     [mime appendDataWithAtomPubEntity:@"RelyingPartyRuleGroups"
@@ -427,7 +427,7 @@
                   endpoint:(NSString *)endpoint
      withCompletionHandler:(void (^)())block
 {
-    WAMultipartMime *mime = [queue.client createMimeBody];
+    WAMMultipartMime *mime = [queue.client createMimeBody];
 
     [mime appendDataWithAtomPubEntity:@"IdentityProviderAddresses"
                                  term:@"IdentityProviderAddress",
@@ -587,7 +587,7 @@
                                requests:(NSMutableArray *)requests
                   withCompletionHandler:(void (^)())block
 {
-    WAMultipartMime *mime = [requests lastObject];
+    WAMMultipartMime *mime = [requests lastObject];
     NSString *key = [names lastObject];
 
     [queue.client sendBatch:mime mimeEntryHandler:^(xmlDocPtr doc)
@@ -655,7 +655,7 @@
                 [names addObject:displayName];
             }
 
-            WAMultipartMime *mime = [queue.client createMimeBody];
+            WAMMultipartMime *mime = [queue.client createMimeBody];
             long long issuerIdValue = [[entry objectForKey:@"IssuerId"] longLongValue];
 
             [mime appendDataWithAtomPubEntity:@"Rules"
@@ -690,7 +690,7 @@
                              requests:(NSMutableArray *)requests
                 withCompletionHandler:(void (^)())block
 {
-    WAMultipartMime *mime = [requests lastObject];
+    WAMMultipartMime *mime = [requests lastObject];
     NSString *key = [names lastObject];
 
     [queue.client sendBatch:mime mimeEntryHandler:^(xmlDocPtr doc)
@@ -739,7 +739,7 @@
         NSDictionary *dict = [queue objectForKey:key];
         long long identityProvider = [dict[@"IdentityProvider"] longLongValue];
 
-        WAMultipartMime *mime = [queue.client createMimeBody];
+        WAMMultipartMime *mime = [queue.client createMimeBody];
 
         [mime appendDataWithAtomPubEntity:@"RelyingPartyIdentityProviders"
                                      term:@"RelyingPartyIdentityProvider",
