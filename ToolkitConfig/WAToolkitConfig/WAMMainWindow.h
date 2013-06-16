@@ -17,6 +17,6 @@
 #import <Foundation/Foundation.h>
 
 
-@interface MainWindow : NSWindow 
+@interface WAMMainWindow : NSWindow 
 
 @end

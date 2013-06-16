@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-#import "MainWindow.h"
+#import "WAMMainWindow.h"
 
 
-@implementation MainWindow
+@implementation WAMMainWindow
 
 - (id)init
 {
