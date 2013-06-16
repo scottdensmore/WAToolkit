@@ -147,7 +147,6 @@
 		BOOL stop = NO;
 		WAAtomPubEntry* entry = [[WAAtomPubEntry alloc] initWithNode:root];
 		block(entry, 0, &stop);
-		[entry release];
 		return;
 	}
 	
@@ -157,7 +156,6 @@
      {
          WAAtomPubEntry* entry = [[WAAtomPubEntry alloc] initWithNode:node];
          block(entry, index++, stop);
-         [entry release];
      }];
 }
 

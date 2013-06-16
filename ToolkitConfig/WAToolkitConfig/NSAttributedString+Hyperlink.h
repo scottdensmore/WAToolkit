@@ -19,7 +19,7 @@
 
 @interface NSAttributedString (Hyperlink)
 
-+ (id)hyperlinkFromString:(NSString *)inString withURL:(NSURL *)aURL;
++ (NSAttributedString *)hyperlinkFromString:(NSString *)inString withURL:(NSURL *)aURL;
 + (NSAttributedString *)attributedStringWithString:(NSString *)string;
 + (NSMutableAttributedString *)attributedStringWithValues:(id)format, ... NS_REQUIRES_NIL_TERMINATION;
 

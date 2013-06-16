@@ -28,6 +28,8 @@ typedef enum {
 
 @interface RootWindowController()
 
+@property (strong) NSMutableArray *sequence;;
+
 - (void)willUpdateState;
 - (void)didUpdateState;
 - (void)updateState;
@@ -61,9 +63,9 @@ typedef enum {
 @synthesize directAccessKey;
 @synthesize acsNamespace;
 @synthesize acsManagementKey;
-@synthesize proxyService;
+//@synthesize proxyService;
 @synthesize tabAzureSetup;
-@synthesize tabDirect;
+//@synthesize tabDirect;
 @synthesize tabProxyACS;
 @synthesize tabProxyGeneral;
 @synthesize tabAPNSImport;
@@ -71,7 +73,7 @@ typedef enum {
 @synthesize saveType;
 @synthesize acsSpinner;
 @synthesize acsSetupPanel;
-
+@synthesize sequence;
 @synthesize fieldAccountName;
 @synthesize fieldConnectionType;
 @synthesize fieldDirectAccessKey;
@@ -101,15 +103,15 @@ typedef enum {
 		NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 		[center addObserver:self selector:@selector(textChanged:) name:NSControlTextDidChangeNotification object:nil];
 		
-		sequence = [[NSMutableArray alloc] initWithCapacity:10];
+		self.sequence = [[NSMutableArray alloc] initWithCapacity:10];
 		
 		NSMutableAttributedString *string;
 		string = [NSAttributedString attributedStringWithValues:
 				  @"This tool will configure the ",
-				  [NSURL URLWithString:@"http://acs.codeplex.com/"],
+				  [NSURL URLWithString:@"http://www.windowsazure.com/en-us/solutions/identity/"],
 				  @"Access Control Service",
 				  @" while also creating the Windows Azure service configuration file for the ",
-				  [NSURL URLWithString:@"https://github.com/microsoft-dpe/cloudreadypackages"],
+				  [NSURL URLWithString:@"https://github.com/scottdensmore/WAToolkit"],
 				  @"Cloud Ready Packages for Devices",
 				  @".", nil];
 		[string addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:13.0] range:NSMakeRange(0, [string length])];
@@ -117,14 +119,14 @@ typedef enum {
 
 		string = [NSAttributedString attributedStringWithValues:
 				  @"Haven't yet deployed the Cloud Ready Package? ",
-				  [NSURL URLWithString:@"https://github.com/microsoft-dpe/cloudreadypackages"],
+				  [NSURL URLWithString:@"https://github.com/scottdensmore/WAToolkit"],
 				  @"Download it now",
 				  @".", nil];
 		[string addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:11.0] range:NSMakeRange(0, [string length])];
 		self.fieldDownloadHyperlink = string;
 		
 		string = [NSAttributedString attributedStringWithValues:
-				  [NSURL URLWithString:@"http://watoolkitwp7.codeplex.com/wikipage?title=Obtain%20Namespace%20and%20Management%20Key"],
+				  [NSURL URLWithString:@"http://www.windowsazure.com/en-us/services/data-management/"],
 				  @"How to obtain the namespace and management key?", nil];
 		[string addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:11.0] range:NSMakeRange(0, [string length])];
 		self.fieldObtainACSKey = string;
@@ -140,29 +142,8 @@ typedef enum {
 	NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
 	[center removeObserver:self];
 	
-	[sequence release];
 	
-	[fieldAccountName release];
-	[fieldConnectionType release];
-	[fieldDirectAccessKey release];
-	[fieldDirectAccessKeyError release];
-	[fieldACSNamespace release];
-	[fieldACSManagementKey release];
-	[fieldACSManagementKeyError release];
-	[fieldACSRelyingName release];
-	[fieldACSRealm release];
-	[fieldACSSigningKey release];
-	[fieldACSStatus release];
-	[fieldSSLThumbprint release];
-	[fieldSSLThumbprintError release];
-    [fieldAPNSThumbprint release];
-	[fieldReview release];
-	[fieldSaveType release];
-	[fieldIntroHyperlink release];
-	[fieldDownloadHyperlink release];
-	[fieldObtainACSKey release];
     
-    [super dealloc];
 }
 
 - (void)doesNotRecognizeSelector:(SEL)aSelector
@@ -450,14 +431,14 @@ typedef enum {
 - (void)pushView:(NSTabViewItem *)view
 {
 	NSTabViewItem *current = [tabView selectedTabViewItem];
-	[sequence addObject:current];
+	[self.sequence addObject:current];
 	
 	[tabView selectTabViewItem:view];
 }
 
 - (void)popView
 {
-	NSTabViewItem *previous = [sequence lastObject];
+	NSTabViewItem *previous = [self.sequence lastObject];
 	[tabView selectTabViewItem:previous];
 	[sequence removeLastObject];
 }
@@ -483,6 +464,8 @@ typedef enum {
     [panel setAllowedFileTypes:@[@"cer", @"pfx", @"pem"]];
 	[panel setAllowsOtherFileTypes:NO];
 	
+    
+    __weak RootWindowController* weakSelf = self;
 	[panel beginSheetModalForWindow:[tabView window]
 				  completionHandler:^(NSInteger result) 
 	 {
@@ -515,9 +498,9 @@ typedef enum {
 		 }
 		 
          if (importType == WAImportSSL) {
-             self.fieldSSLThumbprint = tp;
+             weakSelf.fieldSSLThumbprint = tp;
          } else {
-             self.fieldAPNSThumbprint = tp;
+             weakSelf.fieldAPNSThumbprint = tp;
          }
 	 }];
 }
@@ -619,7 +602,6 @@ typedef enum {
     }
     [contents replaceOccurrencesOfString:@"{useapns}" withString:useAPNS options:NSCaseInsensitiveSearch range:NSMakeRange(0, contents.length)];
     [contents replaceOccurrencesOfString:@"{yourapplethumbprint}" withString:thumbprint options:NSCaseInsensitiveSearch range:NSMakeRange(0, contents.length)];
-    [thumbprint release];
 	
 	if(connType == 1)
 	{

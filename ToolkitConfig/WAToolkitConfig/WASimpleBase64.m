@@ -60,7 +60,7 @@ static uint8_t ByteDecode(char c, BOOL* error);
 	NSString* result = [[NSString alloc] initWithCString:output encoding:NSASCIIStringEncoding];
 	free(output);
 	
-	return [result autorelease];
+	return result;
 }
 
 @end

@@ -58,7 +58,7 @@
 		 }
 	 }];
 	
-	return [result autorelease];
+	return result;
 }
 
 - (NSDictionary *)toDictionary

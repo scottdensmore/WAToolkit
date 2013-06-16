@@ -32,15 +32,12 @@
 	// Insert code here to initialize your application
 	NSValueTransformer *transformer = [AzureURLTransformer new];
 	[NSValueTransformer setValueTransformer:transformer forName:@"AzureURLTransformer"];
-	[transformer release];
 	
 	transformer = [ACSURLTransformer new];
 	[NSValueTransformer setValueTransformer:transformer forName:@"ACSURLTransformer"];
-	[transformer release];
 	
 	transformer = [ProxyURLTransformer new];
 	[NSValueTransformer setValueTransformer:transformer forName:@"ProxyURLTransformer"];
-	[transformer release];
 }
 
 - (void)awakeFromNib

@@ -57,7 +57,7 @@
 		attr = [[NSMutableAttributedString alloc] initWithString:str attributes:@{}];
 	}
 	
-	return [attr autorelease];
+	return attr;
 }
 
 @end

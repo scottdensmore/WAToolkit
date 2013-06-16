@@ -19,11 +19,11 @@
 
 @interface WAToolkitConfigAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate> {
 @private
-	NSWindow *window;
-	RootWindowController *rootController;
+	NSWindow *__weak window;
+	RootWindowController *__weak rootController;
 }
 
-@property (assign) IBOutlet NSWindow *window;
-@property (assign) IBOutlet RootWindowController *rootController;
+@property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet RootWindowController *rootController;
 
 @end

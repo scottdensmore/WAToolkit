@@ -27,7 +27,7 @@
 - (NSDictionary*)toDictionary;
 - (id)objectForKey:(id)aKey;
 
-@property (readonly) NSString *identity;
+@property (weak, readonly) NSString *identity;
 
 
 @end

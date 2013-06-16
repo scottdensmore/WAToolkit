@@ -35,10 +35,10 @@
 {
 	if((self = [super init]))
 	{
-		_client = [client retain];
+		_client = client;
 		_contentID = 1;
-		_batch = [[NSString generateUuidString] retain];
-		_changeSet = [[NSString generateUuidString] retain];
+		_batch = [NSString generateUuidString];
+		_changeSet = [NSString generateUuidString];
 		_data = [[NSMutableData alloc] initWithCapacity:10000];
 
 		[self appendLineWithFormat:@"--batch_%@", _batch];
@@ -49,15 +49,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[_client release];
-	[_batch release];
-	[_changeSet release];
-	[_data release];
-	
-	[super dealloc];
-}
 
 - (void)appendLine:(NSString *)line
 {
@@ -76,7 +67,6 @@
 	va_end(args);
 	
 	[self appendLine:line];
-	[line release];
 }
 
 - (NSData*)appendDataWithAtomPubEntity:(NSString *)entity term:(NSString *)term args:(va_list)args

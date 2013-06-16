@@ -98,7 +98,7 @@
 			return;
 		}
 		
-		__block NSMutableArray *array = [NSMutableArray arrayWithCapacity:10];
+		__weak NSMutableArray *array = [NSMutableArray arrayWithCapacity:10];
 		
 		// see if we can find this entry...
 		[WAXMLHelper parseAtomPub:doc block:^(WAAtomPubEntry *entry, NSInteger index, BOOL *stop) 
@@ -297,8 +297,6 @@
 					  NSDateComponents *components = [[NSDateComponents alloc] init];
 					  [components setYear:1];
 					  NSDate *oneYearLater = [cal dateByAddingComponents:components toDate:now options:0];
-					  [components release];
-					  [cal release];
 					  
 					  [mime appendDataWithAtomPubEntity:@"RelyingPartyKeys" 
 												   term:@"RelyingPartyKey",
@@ -816,7 +814,7 @@
         CFErrorRef error = NULL;
         
         // Create the dictionary of key parameters
-        CFMutableDictionaryRef parameters = (CFMutableDictionaryRef)[NSMutableDictionary dictionaryWithObjectsAndKeys:kSecAttrKeyTypeAES, kSecAttrKeyType, (CFNumberRef)@256, kSecAttrKeySizeInBits, nil];
+        CFMutableDictionaryRef parameters = (__bridge CFMutableDictionaryRef)[NSMutableDictionary dictionaryWithObjectsAndKeys:kSecAttrKeyTypeAES, kSecAttrKeyType, (CFNumberRef)@256, kSecAttrKeySizeInBits, nil];
         
         keyRef = SecKeyGenerateSymmetric(parameters, &error);
 					
@@ -828,7 +826,7 @@
 		
         CFRelease(keyRef);
 	
-		nsd = (NSData*)data;
+		nsd = (__bridge NSData*)data;
 		signingKey = [nsd stringWithBase64EncodedData];
 		
 		CFRelease(data);
@@ -849,7 +847,6 @@
 			block(queue.values, nil);
 		}
 		
-		[queue release];
 	}];
 	
 	queue.status = @"Authenticating";

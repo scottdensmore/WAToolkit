@@ -92,8 +92,8 @@ unichar *url_decode(unichar *str) {
 
 - (NSString *)URLDecode
 {
-	NSString *result = (NSString *) CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault, (CFStringRef)self, CFSTR(""), kCFStringEncodingUTF8); 
-	return [result autorelease]; 
+	NSString *result = (NSString *) CFBridgingRelease(CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault, (CFStringRef)self, CFSTR(""), kCFStringEncodingUTF8)); 
+	return result; 
 }
 
 // return a new autoreleased UUID string
@@ -103,10 +103,7 @@ unichar *url_decode(unichar *str) {
 	CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
 	
 	// create a new CFStringRef (toll-free bridged to NSString) that you own
-	NSString *uuidString = (NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
-	
-	// transfer ownership of the string to the autorelease pool
-	[uuidString autorelease];
+	NSString *uuidString = (NSString *)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, uuid));
 	
 	// release the UUID
 	CFRelease(uuid);

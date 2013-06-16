@@ -39,10 +39,10 @@ typedef void (^WorkerQueueBlock)(WorkerQueue *queue);
 - (void)setCompletionHandler:(WorkerQueueBlock)block;
 - (void)setStatusTarget:(void(^)(NSString *))statusCallback;
 
-@property (retain) NSError *error;
-@property (retain) ServiceCall *client;
+@property (strong) NSError *error;
+@property (strong) ServiceCall *client;
 
-@property (assign) NSString *status;
+@property (weak) NSString *status;
 @property (readonly) NSDictionary *values;
 
 @end

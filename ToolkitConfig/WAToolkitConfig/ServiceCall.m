@@ -40,10 +40,13 @@
 	NSInteger _statusCode;
 	NSMutableData *_data;
 	void (^_block)(NSInteger statusCode, NSData *response, NSError *error);
+    NSMutableURLRequest *_request;
 }
 
-+ (void) createServiceRequestWithURL:(NSString*)url httpMethod:(NSString*)httpMethod payload:(NSData*)payload contentType:(NSString*)contentType token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData* response, NSError* error))block;
-+ (void) createServiceRequestWithURL:(NSString*)url token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData* response, NSError* error))block;
++ (ServiceRequest *) serviceRequestWithURL:(NSString*)url httpMethod:(NSString*)httpMethod payload:(NSData*)payload contentType:(NSString*)contentType token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData* response, NSError* error))block;
++ (ServiceRequest *) serviceRequestWithURL:(NSString*)url token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData* response, NSError* error))block;
+
+- (void)start;
 
 @end
 
@@ -55,19 +58,12 @@
 	{
 		_serviceNamespace = [namespace copy];
 		_rawToken = [token copy];
-		_token = [[token URLDecode] retain];
+		_token = [token URLDecode];
 	}
 	
 	return self;
 }
 
-- (void)dealloc
-{
-	[_serviceNamespace release];
-	[_rawToken release];
-	[_token release];
-	[super dealloc];
-}
 
 #define ISO_TIMEZONE_UTC_FORMAT @"Z"
 #define ISO_TIMEZONE_OFFSET_FORMAT @"%+02d%02d"
@@ -104,7 +100,7 @@
 	NSString* payload = [NSString stringWithFormat:@"wrap_name=ManagementClient&wrap_password=%@&wrap_scope=%@",
 						 [managementKey URLEncode], [scope URLEncode]];
 	
-	[ServiceRequest createServiceRequestWithURL:urlStr
+	ServiceRequest* request = [ServiceRequest serviceRequestWithURL:urlStr
 									 httpMethod:@"POST" 
 										payload:[payload dataUsingEncoding:NSUTF8StringEncoding] 
 									contentType:@"application/x-www-form-urlencoded; charset=UTF-8"
@@ -119,7 +115,6 @@
 			  
 			  NSString* str = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
 			  NSArray* parts = [str componentsSeparatedByString:@"&"];
-			  [str release];
 			  
 			  for(NSString* s in parts)
 			  {
@@ -129,19 +124,20 @@
 					  ServiceCall* client = [[ServiceCall alloc] initWithServiceNamespace:serviceNamespace token:token];
 					  
 					  block(200, error, client);
-					  [client release];
 					  break;
 				  }
 			  }
 			  
 		  }];
+    
+    [request start];
 }
 
 - (void) getFromEntity:(NSString*)entity withCompletionHandler:(void (^)(NSData* data, NSError* error))block
 {
 	NSString* urlStr = [self URLforEntity:entity];
 	
-	[ServiceRequest createServiceRequestWithURL:urlStr 
+	ServiceRequest* request = [ServiceRequest serviceRequestWithURL:urlStr
 										  token:_token 
 						  withCompletionHandler:^(NSInteger statusCode, NSData *response, NSError *error) {
 							  if(error)
@@ -152,6 +148,8 @@
 							  
 							  block(response, nil);
 						  }];
+    
+    [request start];
 }
 
 - (void) getFromEntity:(NSString*)entity withXmlCompletionHandler:(void (^)(xmlDocPtr doc, NSError* error))block
@@ -170,7 +168,6 @@
 #if DEBUG
 		NSString* xml = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 		LOGLINE(@"XML Response: %@", xml);
-		[xml release];
 #endif
 		
 		xmlDocPtr doc = xmlReadMemory([data bytes], (int)[data length], baseURL, encoding, (XML_PARSE_NOCDATA | XML_PARSE_NOBLANKS)); 
@@ -237,7 +234,7 @@
 {
 	NSString* urlStr = [self URLforEntity:entity];
 	
-	[ServiceRequest createServiceRequestWithURL:urlStr 
+	ServiceRequest* request = [ServiceRequest serviceRequestWithURL:urlStr
 									 httpMethod:@"DELETE" 
 										payload:nil 
 									contentType:nil
@@ -246,11 +243,13 @@
 	 {
 		 block(error);
 	 }];
+    
+    [request start];
 }
 
 - (WAMultipartMime*) createMimeBody
 {
-	return [[[WAMultipartMime alloc] initWithServiceClient:self] autorelease];
+	return [[WAMultipartMime alloc] initWithServiceClient:self];
 }
 
 - (void) sendBatch:(WAMultipartMime*)mimeBody mimeEntryHandler:(void (^)(xmlDocPtr doc))itemHandler withCompletionHandler:(void (^)(NSError* error))block
@@ -262,10 +261,9 @@
 #if DEBUG
 	NSString* str1 = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	LOGLINE(@"%@", str1);	
-    [str1 release];
 #endif
 	
-	[ServiceRequest createServiceRequestWithURL:urlStr
+	ServiceRequest* request = [ServiceRequest serviceRequestWithURL:urlStr
 									 httpMethod:@"POST" 
 										payload:data 
 									contentType:contentType
@@ -280,7 +278,6 @@
 
 		 NSString *str = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
 		 NSArray *lines = [str componentsSeparatedByString:@"\r\n"];
-         [str release];
          
 		 if(lines.count == 0)
 		 {
@@ -387,6 +384,8 @@
 		 // ok, we're done
 		 block(nil);
 	 }];
+    
+    [request start];
 }
 														   														   
 @end
@@ -399,55 +398,53 @@
 	{
 		_block = [block copy];
 		
-		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+		_request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
 		
-		[request setHTTPMethod:httpMethod];
-		[request setHTTPShouldHandleCookies:NO];
-		[request setValue:@"Microsoft ADO.NET Data Services" forHTTPHeaderField:@"User-Agent"];
+		[_request setHTTPMethod:httpMethod];
+		[_request setHTTPShouldHandleCookies:NO];
+		[_request setValue:@"Microsoft ADO.NET Data Services" forHTTPHeaderField:@"User-Agent"];
 		
 		if(payload)
 		{
-			[request setHTTPBody:payload];
-			[request setValue:contentType forHTTPHeaderField:@"Content-Type"];
+			[_request setHTTPBody:payload];
+			[_request setValue:contentType forHTTPHeaderField:@"Content-Type"];
 		}
 		
 		if(token)
 		{
 			NSString* wrapper = [NSString stringWithFormat:@"WRAP access_token=\"%@\"", token];
-			[request setValue:wrapper forHTTPHeaderField:@"Authorization"];
+			[_request setValue:wrapper forHTTPHeaderField:@"Authorization"];
 			
-			[request setValue:@"UTF-8" forHTTPHeaderField:@"Accept-Charset"];
-			[request setValue:@"application/atom+xml,application/xml" forHTTPHeaderField:@"Accept"];
-			[request setValue:@"1.0;NetFx" forHTTPHeaderField:@"DataServiceVersion"];
-			[request setValue:@"2.0;NetFx" forHTTPHeaderField:@"MaxDataServiceVersion"];
+			[_request setValue:@"UTF-8" forHTTPHeaderField:@"Accept-Charset"];
+			[_request setValue:@"application/atom+xml,application/xml" forHTTPHeaderField:@"Accept"];
+			[_request setValue:@"1.0;NetFx" forHTTPHeaderField:@"DataServiceVersion"];
+			[_request setValue:@"2.0;NetFx" forHTTPHeaderField:@"MaxDataServiceVersion"];
 		}
 		
 
 		LOGLINE(@"%@ %@", httpMethod, url);
-		LOGLINE(@"Headers: %@", [request allHTTPHeaderFields]);
+		LOGLINE(@"Headers: %@", [_request allHTTPHeaderFields]);
 		
-		_connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+		//_connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 	}
 	
 	return self;
 }
 
-- (void)dealloc
+
++ (ServiceRequest *)serviceRequestWithURL:(NSString *)url httpMethod:(NSString *)httpMethod payload:(NSData *)payload contentType:(NSString *)contentType token:(NSString *)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData *response, NSError *error))block
 {
-	[_connection release];
-	[_block release];
-	[_data release];
-	[super dealloc];
+	return [[self alloc] initServiceRequestWithURL:url httpMethod:httpMethod payload:payload contentType:contentType token:token withCompletionHandler:block];
 }
 
-+ (void)createServiceRequestWithURL:(NSString *)url httpMethod:(NSString *)httpMethod payload:(NSData *)payload contentType:(NSString *)contentType token:(NSString *)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData *response, NSError *error))block
++ (ServiceRequest *)serviceRequestWithURL:(NSString *)url token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData *response, NSError *error))block
 {
-	[[[self alloc] initServiceRequestWithURL:url httpMethod:httpMethod payload:payload contentType:contentType token:token withCompletionHandler:block] autorelease];
+	return [[self alloc] initServiceRequestWithURL:url httpMethod:@"GET" payload:nil contentType:nil token:token withCompletionHandler:block];
 }
 
-+ (void)createServiceRequestWithURL:(NSString *)url token:(NSString*)token withCompletionHandler:(void (^)(NSInteger statusCode, NSData *response, NSError *error))block
+- (void)start
 {
-	[[[self alloc] initServiceRequestWithURL:url httpMethod:@"GET" payload:nil contentType:nil token:token withCompletionHandler:block] autorelease];
+    _connection = [[NSURLConnection alloc] initWithRequest:_request delegate:self];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response
@@ -470,7 +467,6 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
 	_block(_statusCode, nil, error);
-	[self release];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection

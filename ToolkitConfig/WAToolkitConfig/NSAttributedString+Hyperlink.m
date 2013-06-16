@@ -18,7 +18,7 @@
 
 @implementation NSAttributedString (Hyperlink)
 
-+ (id)hyperlinkFromString:(NSString *)inString withURL:(NSURL *)aURL
++ (NSAttributedString *)hyperlinkFromString:(NSString *)inString withURL:(NSURL *)aURL
 {
 	NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString: inString];
 	NSRange range = NSMakeRange(0, [attrString length]);
@@ -34,12 +34,12 @@
  	
 	[attrString endEditing];
  	
-	return [attrString autorelease];
+	return attrString;
 }
 
 + (NSAttributedString *)attributedStringWithString:(NSString *)string
 {
-	return [[[NSAttributedString alloc] initWithString:string] autorelease];
+	return [[NSAttributedString alloc] initWithString:string];
 }
 
 + (NSMutableAttributedString *)attributedStringWithValues:(id)value, ...
@@ -80,7 +80,7 @@
 	
 	va_end(args);
 	
-	return [string autorelease];
+	return string;
 }
 
 @end

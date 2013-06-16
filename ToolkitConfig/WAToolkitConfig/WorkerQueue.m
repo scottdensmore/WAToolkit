@@ -15,6 +15,7 @@
  */
 
 #import "WorkerQueue.h"
+#import "ServiceCall.h"
 
 @implementation WorkerQueue
 
@@ -32,17 +33,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[_workers release];
-    [_values release];
-	[_error release];
-	[_completionHandler release];
-	[_client release];
-	[_statusCallback release];
-	
-	[super dealloc];
-}
 
 - (void)processLast
 {
@@ -65,7 +55,6 @@
 
 - (void)setCompletionHandler:(WorkerQueueBlock)block
 {
-	[_completionHandler release];
 	_completionHandler = [block copy];
 }
 
@@ -76,8 +65,6 @@
 
 - (void)setError:(NSError *)error
 {
-	[error retain];
-	[_error release];
 	_error = error;
 	
 	if(_error)
