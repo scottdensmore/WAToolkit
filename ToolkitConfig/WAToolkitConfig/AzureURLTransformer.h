@@ -20,5 +20,5 @@
 @interface AzureURLTransformer : NSValueTransformer
 @end
 
-@interface ACSURLTransformer : AzureURLTransformer
+@interface WAMACSURLTransformer : AzureURLTransformer
 @end

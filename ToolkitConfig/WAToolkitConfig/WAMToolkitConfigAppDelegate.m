@@ -30,9 +30,8 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    NSValueTransformer *transformer = [ACSURLTransformer new];
-
-    [NSValueTransformer setValueTransformer:transformer forName:@"ACSURLTransformer"];
+    //NSValueTransformer *transformer = [WAMACSURLTransformer new];
+    //[NSValueTransformer setValueTransformer:transformer forName:@"ACSURLTransformer"];
 
     //transformer = [AzureURLTransformer new];
     //[NSValueTransformer setValueTransformer:transformer forName:@"AzureURLTransformer"];

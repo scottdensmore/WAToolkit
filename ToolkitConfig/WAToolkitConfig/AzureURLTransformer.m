@@ -60,7 +60,7 @@
 
 @end
 
-@implementation ACSURLTransformer
+@implementation WAMACSURLTransformer
 
 + (NSString *)format
 {
