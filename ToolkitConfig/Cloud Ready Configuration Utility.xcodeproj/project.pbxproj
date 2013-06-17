@@ -32,7 +32,7 @@
 		AAE2A474139F06D300EBA47C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A473139F06D300EBA47C /* main.m */; };
 		AAE2A47A139F06D300EBA47C /* WAToolkitConfigAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A479139F06D300EBA47C /* WAToolkitConfigAppDelegate.m */; };
 		AAE2A47D139F06D300EBA47C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAE2A47B139F06D300EBA47C /* MainMenu.xib */; };
-		AAE2A48D139F186800EBA47C /* RootWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A48C139F186800EBA47C /* RootWindowController.m */; };
+		AAE2A48D139F186800EBA47C /* WAMRootWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A48C139F186800EBA47C /* WAMRootWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,8 +79,8 @@
 		AAE2A478139F06D300EBA47C /* WAToolkitConfigAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAToolkitConfigAppDelegate.h; sourceTree = "<group>"; };
 		AAE2A479139F06D300EBA47C /* WAToolkitConfigAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WAToolkitConfigAppDelegate.m; sourceTree = "<group>"; };
 		AAE2A47C139F06D300EBA47C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		AAE2A48B139F186800EBA47C /* RootWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootWindowController.h; sourceTree = "<group>"; };
-		AAE2A48C139F186800EBA47C /* RootWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootWindowController.m; sourceTree = "<group>"; };
+		AAE2A48B139F186800EBA47C /* WAMRootWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMRootWindowController.h; sourceTree = "<group>"; };
+		AAE2A48C139F186800EBA47C /* WAMRootWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMRootWindowController.m; sourceTree = "<group>"; };
 		DEF0D45D1458D2F8005B920B /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,8 +181,8 @@
 				AA4A127113A2F3940045B856 /* AzureURLTransformer.m */,
 				AA4FE0D113A989E800D29B7B /* WAMMainWindow.h */,
 				AA4FE0D213A989E800D29B7B /* WAMMainWindow.m */,
-				AAE2A48B139F186800EBA47C /* RootWindowController.h */,
-				AAE2A48C139F186800EBA47C /* RootWindowController.m */,
+				AAE2A48B139F186800EBA47C /* WAMRootWindowController.h */,
+				AAE2A48C139F186800EBA47C /* WAMRootWindowController.m */,
 				AA44E49613CBDC8B0081A35E /* NSAttributedString+Hyperlink.h */,
 				AA44E49713CBDC8B0081A35E /* NSAttributedString+Hyperlink.m */,
 				DEF0D45D1458D2F8005B920B /* Macros.h */,
@@ -296,7 +296,7 @@
 			files = (
 				AAE2A474139F06D300EBA47C /* main.m in Sources */,
 				AAE2A47A139F06D300EBA47C /* WAToolkitConfigAppDelegate.m in Sources */,
-				AAE2A48D139F186800EBA47C /* RootWindowController.m in Sources */,
+				AAE2A48D139F186800EBA47C /* WAMRootWindowController.m in Sources */,
 				AA4A127213A2F3940045B856 /* AzureURLTransformer.m in Sources */,
 				AA4FE0CB13A9620900D29B7B /* WAMSimpleBase64.m in Sources */,
 				AA4FE0D313A989E800D29B7B /* WAMMainWindow.m in Sources */,

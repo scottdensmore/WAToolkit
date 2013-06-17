@@ -15,15 +15,15 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import "RootWindowController.h"
+#import "WAMRootWindowController.h"
 
 @interface WAToolkitConfigAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate> {
 @private
 	NSWindow *__weak window;
-	RootWindowController *__weak rootController;
+	WAMRootWindowController *__weak rootController;
 }
 
 @property (weak) IBOutlet NSWindow *window;
-@property (weak) IBOutlet RootWindowController *rootController;
+@property (weak) IBOutlet WAMRootWindowController *rootController;
 
 @end

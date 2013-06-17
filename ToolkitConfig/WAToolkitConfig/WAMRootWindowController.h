@@ -17,7 +17,7 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 
-@interface RootWindowController : NSWindowController <NSTabViewDelegate, NSTextFieldDelegate> {
+@interface WAMRootWindowController : NSWindowController <NSTabViewDelegate, NSTextFieldDelegate> {
 }
 
 @property (weak) IBOutlet NSTabView *tabView;

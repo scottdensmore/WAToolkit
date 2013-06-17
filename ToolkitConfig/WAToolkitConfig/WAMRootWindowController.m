@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "RootWindowController.h"
+#import "WAMRootWindowController.h"
 #import "WAMSimpleBase64.h"
 #import "WAMConfigureACS.h"
 #import "NSAttributedString+Hyperlink.h"
@@ -26,7 +26,7 @@ typedef enum {
     WAImportAPNS = 1
 } WAImportCertType;
 
-@interface RootWindowController ()
+@interface WAMRootWindowController ()
 
 @property (strong) NSMutableArray *sequence;
 
@@ -53,7 +53,7 @@ typedef enum {
 
 @end
 
-@implementation RootWindowController
+@implementation WAMRootWindowController
 
 @synthesize tabView;
 @synthesize tabFileSelection;
@@ -416,7 +416,7 @@ typedef enum {
     [panel setAllowsOtherFileTypes:NO];
 
 
-    __weak RootWindowController *weakSelf = self;
+    __weak WAMRootWindowController *weakSelf = self;
     [panel beginSheetModalForWindow:[tabView window]
                   completionHandler:^(NSInteger result)
     {
