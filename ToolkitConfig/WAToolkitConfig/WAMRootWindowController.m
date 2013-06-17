@@ -321,7 +321,7 @@ typedef enum {
     id current = [tabView selectedTabViewItem];
 
     if (current == tabAzureSetup) {
-        return !!fieldAccountName.length && !!fieldDirectAccessKey.length && !!fieldDirectAccessKeyError.length;
+        return !!fieldAccountName.length && !!fieldDirectAccessKey.length && !fieldDirectAccessKeyError.length;
     } else if (current == tabProxyACS) {
         return !fieldACSStatus.length && fieldACSNamespace.length && fieldACSManagementKey.length && !fieldACSManagementKeyError.length;
     } else if (current == tabProxyGeneral) {
