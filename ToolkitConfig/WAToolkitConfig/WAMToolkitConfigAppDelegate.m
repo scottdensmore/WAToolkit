@@ -30,15 +30,15 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    NSValueTransformer *transformer = [AzureURLTransformer new];
+    NSValueTransformer *transformer = [ACSURLTransformer new];
 
-    [NSValueTransformer setValueTransformer:transformer forName:@"AzureURLTransformer"];
-
-    transformer = [ACSURLTransformer new];
     [NSValueTransformer setValueTransformer:transformer forName:@"ACSURLTransformer"];
 
-    transformer = [ProxyURLTransformer new];
-    [NSValueTransformer setValueTransformer:transformer forName:@"ProxyURLTransformer"];
+    //transformer = [AzureURLTransformer new];
+    //[NSValueTransformer setValueTransformer:transformer forName:@"AzureURLTransformer"];
+
+    // transformer = [ProxyURLTransformer new];
+    // [NSValueTransformer setValueTransformer:transformer forName:@"ProxyURLTransformer"];
 }
 
 - (void)awakeFromNib

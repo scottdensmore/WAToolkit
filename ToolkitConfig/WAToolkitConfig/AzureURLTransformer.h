@@ -22,6 +22,3 @@
 
 @interface ACSURLTransformer : AzureURLTransformer
 @end
-
-@interface ProxyURLTransformer : AzureURLTransformer
-@end

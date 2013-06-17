@@ -30,7 +30,8 @@
 
 + (NSString *)format
 {
-    return @"http://%1$@.*.core.windows.net/";
+    //return @"http://%1$@.*.core.windows.net/";
+    return @"http://%1$@.accesscontrol.windows.net/";
 }
 
 - (id)transformedValue:(id)item
@@ -64,15 +65,6 @@
 + (NSString *)format
 {
     return @"http://%1$@.accesscontrol.windows.net/";
-}
-
-@end
-
-@implementation ProxyURLTransformer
-
-+ (NSString *)format
-{
-    return @"https://%1$@.cloudapp.net/";
 }
 
 @end
