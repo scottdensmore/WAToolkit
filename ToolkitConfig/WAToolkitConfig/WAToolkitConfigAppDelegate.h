@@ -17,13 +17,10 @@
 #import <Cocoa/Cocoa.h>
 #import "WAMRootWindowController.h"
 
-@interface WAToolkitConfigAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate> {
-@private
-	NSWindow *__weak window;
-	WAMRootWindowController *__weak rootController;
-}
+@interface WAToolkitConfigAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
 
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet WAMRootWindowController *rootController;
+@property (weak) IBOutlet NSTabView *tabView;
 
 @end
