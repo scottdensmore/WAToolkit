@@ -18,7 +18,7 @@
 		AA44E49413CBCF7B0081A35E /* cloudicon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA44E49313CBCF7B0081A35E /* cloudicon.png */; };
 		AA44E49813CBDC8B0081A35E /* NSAttributedString+Hyperlink.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44E49713CBDC8B0081A35E /* NSAttributedString+Hyperlink.m */; };
 		AA4A123F13A2DC120045B856 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4A123E13A2DC120045B856 /* Security.framework */; };
-		AA4A127213A2F3940045B856 /* AzureURLTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4A127113A2F3940045B856 /* AzureURLTransformer.m */; };
+		AA4A127213A2F3940045B856 /* WAMAzureURLTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4A127113A2F3940045B856 /* WAMAzureURLTransformer.m */; };
 		AA4FE0CB13A9620900D29B7B /* WAMSimpleBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = AA4FE0CA13A9620900D29B7B /* WAMSimpleBase64.m */; };
 		AA4FE0CE13A96BD200D29B7B /* ServiceConfiguration-ACS.cscfg in Resources */ = {isa = PBXBuildFile; fileRef = AA4FE0CD13A96BD200D29B7B /* ServiceConfiguration-ACS.cscfg */; };
 		AA4FE0D013A96FAC00D29B7B /* ServiceConfiguration-Mem.cscfg in Resources */ = {isa = PBXBuildFile; fileRef = AA4FE0CF13A96FAC00D29B7B /* ServiceConfiguration-Mem.cscfg */; };
@@ -55,8 +55,8 @@
 		AA44E49613CBDC8B0081A35E /* NSAttributedString+Hyperlink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Hyperlink.h"; sourceTree = "<group>"; };
 		AA44E49713CBDC8B0081A35E /* NSAttributedString+Hyperlink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Hyperlink.m"; sourceTree = "<group>"; };
 		AA4A123E13A2DC120045B856 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		AA4A127013A2F3940045B856 /* AzureURLTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzureURLTransformer.h; sourceTree = "<group>"; };
-		AA4A127113A2F3940045B856 /* AzureURLTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzureURLTransformer.m; sourceTree = "<group>"; };
+		AA4A127013A2F3940045B856 /* WAMAzureURLTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMAzureURLTransformer.h; sourceTree = "<group>"; };
+		AA4A127113A2F3940045B856 /* WAMAzureURLTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMAzureURLTransformer.m; sourceTree = "<group>"; };
 		AA4FE0C913A9620900D29B7B /* WAMSimpleBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMSimpleBase64.h; sourceTree = "<group>"; };
 		AA4FE0CA13A9620900D29B7B /* WAMSimpleBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMSimpleBase64.m; sourceTree = "<group>"; };
 		AA4FE0CD13A96BD200D29B7B /* ServiceConfiguration-ACS.cscfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "ServiceConfiguration-ACS.cscfg"; sourceTree = "<group>"; };
@@ -177,8 +177,8 @@
 				AA4FE0C913A9620900D29B7B /* WAMSimpleBase64.h */,
 				AA4FE0CA13A9620900D29B7B /* WAMSimpleBase64.m */,
 				AAE2A47B139F06D300EBA47C /* MainMenu.xib */,
-				AA4A127013A2F3940045B856 /* AzureURLTransformer.h */,
-				AA4A127113A2F3940045B856 /* AzureURLTransformer.m */,
+				AA4A127013A2F3940045B856 /* WAMAzureURLTransformer.h */,
+				AA4A127113A2F3940045B856 /* WAMAzureURLTransformer.m */,
 				AA4FE0D113A989E800D29B7B /* WAMMainWindow.h */,
 				AA4FE0D213A989E800D29B7B /* WAMMainWindow.m */,
 				AAE2A48B139F186800EBA47C /* WAMRootWindowController.h */,
@@ -297,7 +297,7 @@
 				AAE2A474139F06D300EBA47C /* main.m in Sources */,
 				AAE2A47A139F06D300EBA47C /* WAMToolkitConfigAppDelegate.m in Sources */,
 				AAE2A48D139F186800EBA47C /* WAMRootWindowController.m in Sources */,
-				AA4A127213A2F3940045B856 /* AzureURLTransformer.m in Sources */,
+				AA4A127213A2F3940045B856 /* WAMAzureURLTransformer.m in Sources */,
 				AA4FE0CB13A9620900D29B7B /* WAMSimpleBase64.m in Sources */,
 				AA4FE0D313A989E800D29B7B /* WAMMainWindow.m in Sources */,
 				AA27917D13AE8A450042B1FA /* WAMServiceCall.m in Sources */,

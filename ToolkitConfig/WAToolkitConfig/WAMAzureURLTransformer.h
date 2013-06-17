@@ -17,8 +17,8 @@
 #import <Foundation/Foundation.h>
 
 
-@interface AzureURLTransformer : NSValueTransformer
+@interface WAMAzureURLTransformer : NSValueTransformer
 @end
 
-@interface WAMACSURLTransformer : AzureURLTransformer
+@interface WAMACSURLTransformer : WAMAzureURLTransformer
 @end

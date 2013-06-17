@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-#import "AzureURLTransformer.h"
+#import "WAMAzureURLTransformer.h"
 
-@implementation AzureURLTransformer
+@implementation WAMAzureURLTransformer
 
 + (Class)transformedValueClass
 {

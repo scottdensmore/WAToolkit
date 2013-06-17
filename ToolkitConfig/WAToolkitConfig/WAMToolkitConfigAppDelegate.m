@@ -15,7 +15,7 @@
  */
 
 #import "WAMToolkitConfigAppDelegate.h"
-#import "AzureURLTransformer.h"
+#import "WAMAzureURLTransformer.h"
 
 @implementation WAMToolkitConfigAppDelegate
 
