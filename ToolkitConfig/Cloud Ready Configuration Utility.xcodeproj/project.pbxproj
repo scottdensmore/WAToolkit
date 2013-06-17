@@ -30,7 +30,7 @@
 		AAE2A467139F06D300EBA47C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE2A466139F06D300EBA47C /* Cocoa.framework */; };
 		AAE2A471139F06D300EBA47C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAE2A46F139F06D300EBA47C /* InfoPlist.strings */; };
 		AAE2A474139F06D300EBA47C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A473139F06D300EBA47C /* main.m */; };
-		AAE2A47A139F06D300EBA47C /* WAToolkitConfigAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A479139F06D300EBA47C /* WAToolkitConfigAppDelegate.m */; };
+		AAE2A47A139F06D300EBA47C /* WAMToolkitConfigAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A479139F06D300EBA47C /* WAMToolkitConfigAppDelegate.m */; };
 		AAE2A47D139F06D300EBA47C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAE2A47B139F06D300EBA47C /* MainMenu.xib */; };
 		AAE2A48D139F186800EBA47C /* WAMRootWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE2A48C139F186800EBA47C /* WAMRootWindowController.m */; };
 /* End PBXBuildFile section */
@@ -76,8 +76,8 @@
 		AAE2A470139F06D300EBA47C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AAE2A472139F06D300EBA47C /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		AAE2A473139F06D300EBA47C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AAE2A478139F06D300EBA47C /* WAToolkitConfigAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAToolkitConfigAppDelegate.h; sourceTree = "<group>"; };
-		AAE2A479139F06D300EBA47C /* WAToolkitConfigAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WAToolkitConfigAppDelegate.m; sourceTree = "<group>"; };
+		AAE2A478139F06D300EBA47C /* WAMToolkitConfigAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAMToolkitConfigAppDelegate.h; sourceTree = "<group>"; };
+		AAE2A479139F06D300EBA47C /* WAMToolkitConfigAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WAMToolkitConfigAppDelegate.m; sourceTree = "<group>"; };
 		AAE2A47C139F06D300EBA47C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		AAE2A48B139F186800EBA47C /* WAMRootWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAMRootWindowController.h; sourceTree = "<group>"; };
 		AAE2A48C139F186800EBA47C /* WAMRootWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAMRootWindowController.m; sourceTree = "<group>"; };
@@ -172,8 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				AA27917413AE8A260042B1FA /* Services */,
-				AAE2A478139F06D300EBA47C /* WAToolkitConfigAppDelegate.h */,
-				AAE2A479139F06D300EBA47C /* WAToolkitConfigAppDelegate.m */,
+				AAE2A478139F06D300EBA47C /* WAMToolkitConfigAppDelegate.h */,
+				AAE2A479139F06D300EBA47C /* WAMToolkitConfigAppDelegate.m */,
 				AA4FE0C913A9620900D29B7B /* WAMSimpleBase64.h */,
 				AA4FE0CA13A9620900D29B7B /* WAMSimpleBase64.m */,
 				AAE2A47B139F06D300EBA47C /* MainMenu.xib */,
@@ -295,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE2A474139F06D300EBA47C /* main.m in Sources */,
-				AAE2A47A139F06D300EBA47C /* WAToolkitConfigAppDelegate.m in Sources */,
+				AAE2A47A139F06D300EBA47C /* WAMToolkitConfigAppDelegate.m in Sources */,
 				AAE2A48D139F186800EBA47C /* WAMRootWindowController.m in Sources */,
 				AA4A127213A2F3940045B856 /* AzureURLTransformer.m in Sources */,
 				AA4FE0CB13A9620900D29B7B /* WAMSimpleBase64.m in Sources */,

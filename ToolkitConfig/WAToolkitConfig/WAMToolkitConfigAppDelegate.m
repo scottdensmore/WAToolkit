@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-#import "WAToolkitConfigAppDelegate.h"
+#import "WAMToolkitConfigAppDelegate.h"
 #import "AzureURLTransformer.h"
 
-@implementation WAToolkitConfigAppDelegate
+@implementation WAMToolkitConfigAppDelegate
 
 @synthesize window;
 @synthesize rootController;

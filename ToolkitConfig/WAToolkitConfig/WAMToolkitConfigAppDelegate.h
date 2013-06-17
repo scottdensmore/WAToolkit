@@ -17,7 +17,7 @@
 #import <Cocoa/Cocoa.h>
 #import "WAMRootWindowController.h"
 
-@interface WAToolkitConfigAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
+@interface WAMToolkitConfigAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
 
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet WAMRootWindowController *rootController;
