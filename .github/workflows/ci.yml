@@ -1,0 +1,54 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: macOS ${{ matrix.configuration }}
+    runs-on: macos-26-intel
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        configuration: [Debug, Release]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Show existing Xcode and SDKs
+        run: |
+          xcodebuild -version
+          xcodebuild -showsdks
+      - name: Build configuration utility without signing or launching it
+        env:
+          CONFIGURATION: ${{ matrix.configuration }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/build-logs"
+          xcodebuild -project 'ToolkitConfig/Cloud Ready Configuration Utility.xcodeproj' \
+            -target 'Cloud Ready Configuration Utility' -configuration "$CONFIGURATION" \
+            -sdk macosx -jobs 2 SYMROOT="$RUNNER_TEMP/products" OBJROOT="$RUNNER_TEMP/intermediates" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGN_IDENTITY=- DEVELOPMENT_TEAM= \
+            build 2>&1 | tee "$RUNNER_TEMP/build-logs/build.log"
+          echo "Unsigned macOS $CONFIGURATION compilation passed. No tests exist; utility launch, Azure, credentials and cloud configuration are not exercised." >> "$GITHUB_STEP_SUMMARY"
+      - name: Verify tracked source was preserved
+        run: git diff --exit-code
+      - name: Retain failure logs
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: build-failure-${{ matrix.configuration }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/build-logs/
+          retention-days: 3

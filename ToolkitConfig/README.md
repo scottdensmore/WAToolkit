@@ -15,3 +15,9 @@ To download the configuration utility, select a download package (e.g. v1.2.0). 
 ## Contact
 
 For additional questions or feedback, please contact the [team](mailto:wwegner@microsoft.com).
+
+## Continuous integration
+
+The Build workflow attempts unsigned Debug and Release compilation of the configuration utility with the runner's existing Xcode and SDK. It does not launch the utility, deploy services, create or load credentials, access Azure, or modify project/security settings. No software is installed. The existing build phase only scans source comments for warnings.
+
+This is build validation only; there are no implemented test targets. A compiler or SDK incompatibility must be reported and reviewed separately, rather than treated as successful service validation.
