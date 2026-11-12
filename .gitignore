@@ -10,3 +10,26 @@ test-reports/*
 *.ipa
 xcuserdata
 library/build/*
+
+# Modern Xcode, OS, editor, and local env rules
+DerivedData/
+.derivedData/
+xcuserdata/
+*.xcuserstate
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+*.hmap
+*.dSYM.zip
+*.dSYM
+.AppleDouble
+.LSOverride
+._*
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.env
+.env.*
+!.env.example
